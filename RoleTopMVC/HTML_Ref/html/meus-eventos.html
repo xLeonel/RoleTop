@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/meus-eventos.css">
+    <script src="https://kit.fontawesome.com/349a64cb04.js"></script>
+    <title>Meus Eventos</title>
+</head>
+<body>
+    <header>
+            <nav>
+                    <div class="section-container">
+                        <ul>
+                            <li id="bt-mobile-menu">
+                                <!-- HTML para colocar os ícones do FA -->
+                                <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html" >Home</a></li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Sobre Nós</a></li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="servicos.html">Serviços</a></li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Eventos</a></li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Faq</a></li>
+                            <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Contato</a></li>
+                            <li><a id="bt-peca_ja" href="login.html"><i class="fas fa-user"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+    </header>
+
+    <br>
+    
+
+    <main>
+        <div id="total">
+            
+            <div id="esq">
+                <h3><a href="user.html">Minha Conta</a></h3>
+                <div id="borda">
+                    <p style="background-color: #ffc600"><a href="meus-eventos.html">Meus Eventos</a></p>
+                    <hr>
+                    <p><a href="solicitar-eventos.html">Solicitar Eventos</a></p>
+                </div>
+            </div>
+
+            <div id="dir">
+                <table>
+                    <tr>
+                        <th>Evento</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Lollapallozza</td>
+                        <td>12/12/2019</td>
+                        <td><a id="aprovado">Aprovado</a></td>
+                    </tr>
+                    <tr>
+                        <td>So Track Boa</td>
+                        <td>1/05/2019</td>
+                        <td><a id="pendente">Aguardando Pagamento</a></td>
+                    </tr>
+                    <tr>
+                        <td>Fritando mais que Oleo</td>
+                        <td>20/08/2019</td>
+                        <td><a id="reprovado">Reprovado</a></td>
+                    </tr>
+                </table>                      
+            </div>
+        </div>
+
+        <!-- The Modal APROVADO-->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>RoleTop</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Parabéns, seu evento foi aprovado!  </p>
+                    <p>Agora é so curtir o Role no lugar mais Top de São Paulo. </p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Qualquer dúvida entre em contato!</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal PENDENTE-->
+        <div id="myModal2" class="modal2">
+                <!-- Modal content -->
+                <div class="modal-content2">
+                    <div class="modal-header">
+                        <span class="close2">&times;</span>
+                        <h2>RoleTop</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Quase lá! Aguardando pagamento ser efetuado. <a href="pagamento.html">clique aqui</a> para realiza-lo.  </p>
+                        <p>Caso opte pela opçao boleto , o mesmo ser encaminhado via e-mail.</a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <h3>Qualquer dúvida entre em contato!</h3>
+                    </div>
+                </div>
+        </div>
+
+            <!-- The Modal RECUSADO-->
+        <div id="myModal3" class="modal3">
+                <!-- Modal content -->
+                <div class="modal-content3">
+                    <div class="modal-header">
+                        <span class="close3">&times;</span>
+                        <h2>RoleTop</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Seu evento foi recusado. Entre contato para mais informações. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <h3>Qualquer dúvida entre em contato!</h3>
+                    </div>
+                </div>
+        </div>
+
+    </main>   
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("aprovado");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal2 = document.getElementById("myModal2");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("pendente");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal2.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal2.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal3 = document.getElementById("myModal3");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("reprovado");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close3")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal3.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal3.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal3.style.display = "none";
+            }
+        }
+    </script>
+
+<script>
+        function toggleMobileMenu() {
+            var ul = document.querySelector("nav ul");
+            var commonButtons = document.querySelectorAll("nav .bt-common-menu");
+            var icon = document.querySelector(".icon > i");
+
+            ul.classList.toggle("mobile-mode");
+
+            if (icon.classList.contains("fa-bars")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.remove("fa");
+
+                icon.classList.add("fas");
+                icon.classList.add("fa-crown");
+            } else {
+                icon.classList.remove("fas");
+                icon.classList.remove("fa-crown");
+
+                icon.classList.add("fa");
+                icon.classList.add("fa-bars");
+            }
+
+            for (var button of commonButtons) {
+                button.classList.toggle("active");
+            }
+
+        }
+        
+    </script>
+
+
+</body>
+</html>

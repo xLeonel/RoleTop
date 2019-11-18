@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Fotos</title>
+    <link href="css/style-galeria.css" rel="stylesheet" type="text/css">
+    <link href="img/logo.png" rel="icon" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/349a64cb04.js"></script>
+</head>
+<body>
+        <div id="background">
+
+            <header>
+                    <nav>
+                        <div class="section-container">
+                            <ul>
+                                <li id="bt-mobile-menu">
+                                    <!-- HTML para colocar os ícones do FA -->
+                                    <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+                                        <i class="fa fa-bars"></i>
+                                    </a>
+                                </li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html" class="active">Home</a></li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Sobre Nós</a></li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="servicos.html">Serviços</a></li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Eventos</a></li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Faq</a></li>
+                                <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Contato</a></li>
+                                <li><a id="bt-peca_ja" href="login.html"><i class="fas fa-user"></i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+            <main>
+                
+                <section id="part1">
+                    <h2>Show</h2>
+                    <img src="img/show-galeria.jpg" alt="" >
+                    <a><button><span>Faça seu Role</span></button></a>
+                </section>
+                
+                <hgroup id="title-fotos">
+                    <h2>Galeria de Fotos</h2>
+                </hgroup>
+                
+                <!-- Images used to open the lightbox -->
+                <div class="row">
+                    <div class="column">
+                        <img src="img/show-galeria.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show1.jpeg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show2.jpeg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show3.jpeg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show4.jpeg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show1.jpeg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show2.jpeg" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show3.jpeg" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+                    </div>
+                    <div class="column">
+                        <img src="img/show4.jpeg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+                    </div>
+                </div>
+                
+                <!-- The Modal/Lightbox -->      
+                <div id="myModal" class="modal">
+                        <span class="close cursor" onclick="closeModal()">&times;</span>
+                        
+                        <div class="modal-content">
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">1 / 9</div>
+                                <img src="img/show-galeria.jpg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">2 / 9</div>
+                                <img src="img/show1.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">3 / 9</div>
+                                <img src="img/show2.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">4 / 9</div>
+                                <img src="img/show3.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">5 / 9</div>
+                                <img src="img/show4.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">6 / 9</div>
+                                <img src="img/show-galeria.jpg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">7 / 9</div>
+                                <img src="img/show1.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">8 / 9</div>
+                                <img src="img/show2.jpeg" style="width:100%">
+                            </div>
+                            
+                            <div class="mySlides">
+                                <div class="numbertext">9 / 9</div>
+                                <img src="img/show3.jpeg" style="width:100%">
+                            </div>
+                            
+                            <!-- Next/previous controls -->
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </main>
+                
+                
+                
+                <footer>
+                    
+                    <div id="rodape-cima">
+                        
+                        <div id="casa">
+                            <h3>A Casa</h3>
+                            <p>
+                            Somos um grupo empresarial com experiência de mais 
+                            <br>de 20 anos no mercado de eventos em toda grande
+                            <br>São Paulo. Por isso, temos prestigio na área pela
+                            <br> tradição na qualidade dos produtos, atendimento e serviços.
+                        </p>
+                    </div>
+                    <div id="contato">
+                        <h3>Contato</h3>
+                        <ul>
+                            <li><address><img src="img/icons8-casa-96.png">R. Alameda Barão de Limeira, 539</address></li>
+                            <li><address><img src="img/placeholder.png">São Paulo, SP</address></li>
+                            <li><address><img src="img/fone.png">(11) 4002-8922</address></li>
+                            <li><address><img src="img/black-what.png">(11) 98574-8485</address></li>
+                            <li><address><img src="img/icons8-mensagem-preenchida-52.png">emaildecontato@hotmail.com</address></li>
+                        </ul>
+                    </div>
+                    <div id="nav-rod">
+                        <h3>Navegação</h3>
+                        <ul>
+                            <li><a href="index.html"style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Home</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Sobre Nós</a></li>
+                            <li><a href="servicos.html" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Serviços</li></a>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Eventos</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Faq</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+            </div>
+                
+            
+            <div id="rodape-baixo"> 
+                
+                <div id="copy">
+                    <img src="img/copyright.png" alt="">
+                    <p>Todos os direitos reservados.</p>
+            </div>
+
+            <div id="icon-rodape">
+                <img src="img/black-face.png" alt="" style="border-left: 2.5px solid black"> <img src="img/black-insta.png" alt=""> <img src="img/black-what.png" alt="">
+            </div>
+
+            <div id="description">
+                <p>RoleTop | Festas e Eventos Sociais</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+            // Open the Modal
+            function openModal() {
+              document.getElementById("myModal").style.display = "block";
+            }
+            
+            // Close the Modal
+            function closeModal() {
+              document.getElementById("myModal").style.display = "none";
+            }
+            
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            // Next/previous controls
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            // Thumbnail image controls
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              var captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+            </script>
+
+<script>
+        function toggleMobileMenu() {
+            var ul = document.querySelector("nav ul");
+            var commonButtons = document.querySelectorAll("nav .bt-common-menu");
+            var icon = document.querySelector(".icon > i");
+
+            ul.classList.toggle("mobile-mode");
+
+            if (icon.classList.contains("fa-bars")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.remove("fa");
+
+                icon.classList.add("fas");
+                icon.classList.add("fa-crown");
+            } else {
+                icon.classList.remove("fas");
+                icon.classList.remove("fa-crown");
+
+                icon.classList.add("fa");
+                icon.classList.add("fa-bars");
+            }
+
+            for (var button of commonButtons) {
+                button.classList.toggle("active");
+            }
+
+        }
+        
+    </script>
+    
+    
+</body>
+</html>

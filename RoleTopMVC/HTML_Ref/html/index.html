@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>RoleTop</title>
+        <link href="img/logo.png" rel="icon" type="image/x-icon">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/349a64cb04.js"></script>
+    </head>
+    <body>
+        <header>
+
+            <div id="logo">
+                <div id="logo">
+                    <img src="img/logo2.png" alt="logo da empresa" >
+            </div>
+                
+            </div>
+
+            <div>
+                <div id="social-media">  
+                    <a><img src="img/facebook (1).png" alt="icone facebook" ></a>
+                    <a><img src="img/instagram.png" alt="icone instagram"></a>
+                    <a href="https://api.whatsapp.com/send?1=pr_BR&phone=5511960657694"><img src="img/whatsapp (1).png" alt="contato para o whatsapp"></a>
+                    <a href="login.html"><img src="img/user.png" alt="icone para login"></a>
+                </div>  
+            </div>
+            
+            <nav>
+                <div class="section-container">
+                    <ul>
+                        <li id="bt-mobile-menu">
+                            <!-- HTML para colocar os ícones do FA -->
+                            <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html" class="active">Home</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Sobre Nós</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="servicos.html">Serviços</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Eventos</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Faq</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Contato</a></li>
+                        <li><a id="bt-peca_ja" href="login.html"><i class="fas fa-user"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>    
+        
+        <div id="background-somos">
+
+    <main>
+        
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="img/background2.jpg"  >
+                </div>
+                
+                <div class="mySlides fade">
+                    <img src="img/background3.jpg" >
+                </div>
+                
+                <div class="mySlides fade">
+                    <img src="img/background4.jpg" >
+                </div>
+          
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>                   
+            </div>
+          
+           
+            <hgroup id="quem-somosh2">
+            <h2>Quem Somos</h2>
+            <br>
+            <br>
+            </hgroup>
+            <div id="somos">
+                <img  src="img/evento.jpg">
+                    <div id="text">
+                        <p>
+                            <br>RoleTop é um espaço para eventos com localização na Santa Cecília que traz como característic
+                            <br>como característica um ambiente elegante e aconchegante para a realização dos mais exímios eventos, 
+                            <br>sejam ele sociais (casamento, aniversário, festa de debutante, festas infantis, bodas, judaicos...) ou 
+                            <br>corporativos (confraternização, coquetéis, palestras, jantares, conferências, lançamento de produtos
+                            <br>roletop é um espaço para eventos com localização na Santa Cecília que traz como característica 
+                            <br>como característica um ambiente elegante e aconchegante para a realização dos mais exímios eventos, 
+                            <br>sejam ele sociais (casamento, aniversário, festa de debutante, festas infantis, bodas, judaicos ou 
+                            <br>corporativos (confraternização, coquetéis, palestras, jantares, conferências, lançamento de produtos...).
+                            <br>roletop é um espaço para eventos com localização na Santa Cecília que traz sejam ele sociais
+                            <br>como característica um ambiente elegante e aconchegante para a realização dos mais exímios eventos, 
+                            <br>sejam ele sociais (casamento, aniversário, festa de debutante, festas infantis, bodas, judaicos ou 
+                            <br>corporativos (confraternização, coquetéis, palestras, jantares, conferências, lançamento de produtos.
+                        </p>
+                    </div>
+                <img  src="img/equipe.jpg">
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="events">
+                    <div class="container">
+                            <img src="img/corporativo.png" alt="Snow" style="width:100%">
+                            <button class="btn">Faça Seu Role</button>
+                    </div>
+                    <div class="container">
+                            <img src="img/casamento.jpg" alt="Snow" style="width:100%">
+                            <button class="btn">Faça Seu Role</button>
+                    </div> 
+                    <div class="container">
+                            <img src="img/show.jpg" alt="Snow" style="width:100%">
+                            <button class="btn">Faça Seu Role</button>
+                    </div>  
+            </div>
+
+            <hgroup id="msg">
+                <h2>Nos envie uma mensagem</h2>
+            </hgroup>
+
+            <form method="GET" action="index.html">
+                   
+                <div class="double-field">
+                    <div>
+                        <label for="name">Nome Completo</label>
+                        <input type="text" placeholder="Fulano Ciclano">
+                    </div>
+
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="roletop@hotmail.com" required>
+                    </div>
+
+                    <div>
+                        <label for="telefone" >Telefone</label>
+                        <input type="text" placeholder="(11) 91234-5678" pattern="[0-9]{2} [9]{1}[0-9]{4}-[0-9]{4}">
+                    </div>
+                        
+                </div>
+                    <textarea cols="234" rows="10" placeholder="Deixe sua mensagem..." required></textarea>
+                    <br>
+                    <input type="submit" value="Enviar"  />
+            </form>
+
+            
+            <div id="local">
+                <img src="img/planta-baixa.png" alt="planta baixa do local" title="Planta Baixa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.886996150563!2d-46.64847708502264!3d-23.53656648469521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5843deade6e3%3A0x124f377d06c7e71f!2sAlameda%20Bar%C3%A3o%20de%20Limeira%2C%20539%20-%20Campos%20El%C3%ADseos%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001202-001!5e0!3m2!1spt-BR!2sbr!4v1567701952771!5m2!1spt-BR!2sbr" 
+                    width="1000" height="400" frameborder="0" style="border:0;" allowfullscreen="">
+                </iframe>
+            </div>
+
+        </main>
+
+        <footer>
+            
+            <div id="rodape-cima">
+
+                <div id="casa">
+                    <h3>A Casa</h3>
+                        <p>
+                            Somos um grupo empresarial com experiência de mais 
+                        <br>de 20 anos no mercado de eventos em toda grande
+                        <br>São Paulo. Por isso, temos prestigio na área pela
+                        <br> tradição na qualidade dos produtos, atendimento e serviços.
+                        </p>
+                </div>
+                <div id="contato">
+                    <h3>Contato</h3>
+                        <ul>
+                            <li><address><img src="img/icons8-casa-96.png">R. Alameda Barão de Limeira, 539</address></li>
+                            <li><address><img src="img/placeholder.png">São Paulo, SP</address></li>
+                            <li><address><img src="img/fone.png">(11) 4002-8922</address></li>
+                            <li><address><img src="img/black-what.png">(11) 98574-8485</address></li>
+                            <li><address><img src="img/icons8-mensagem-preenchida-52.png">emaildecontato@hotmail.com</address></li>
+                        </ul>
+                </div>
+                <div id="nav-rod">
+                    <h3>Navegação</h3>
+                        <ul>
+                            <li><a href="index.html"style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Home</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Sobre Nós</a></li>
+                            <li><a href="servicos.html" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Serviços</li></a>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Eventos</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Faq</a></li>
+                            <li><a href="" style="text-decoration: none"><img src="img/icons8-barco-a-vela-100.png">Contato</a></li>
+                        </ul>
+                </div>
+
+            </div>
+       
+        </div>      
+        
+        <div id="rodape-baixo"> 
+
+            <div id="copy">
+                <img src="img/copyright.png" alt="">
+                <p>Todos os direitos reservados.</p>
+            </div>
+
+            <div id="icon-rodape">
+                <img src="img/black-face.png" alt="" style="border-left: 2.5px solid black"> <img src="img/black-insta.png" alt=""> <img src="img/black-what.png" alt="">
+            </div>
+
+            <div id="description">
+                <p>RoleTop | Festas e Eventos Sociais</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+        <script>
+                var slideIndex = 1;
+                showSlides(slideIndex);
+                
+                function plusSlides(n) {
+                showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                if (n > slides.length) {slideIndex = 1}    
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slides[slideIndex-1].style.display = "block";  
+                }
+        </script>
+
+<script>
+        function toggleMobileMenu() {
+            var ul = document.querySelector("nav ul");
+            var commonButtons = document.querySelectorAll("nav .bt-common-menu");
+            var icon = document.querySelector(".icon > i");
+
+            ul.classList.toggle("mobile-mode");
+
+            if (icon.classList.contains("fa-bars")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.remove("fa");
+
+                icon.classList.add("fas");
+                icon.classList.add("fa-crown");
+            } else {
+                icon.classList.remove("fas");
+                icon.classList.remove("fa-crown");
+
+                icon.classList.add("fa");
+                icon.classList.add("fa-bars");
+            }
+
+            for (var button of commonButtons) {
+                button.classList.toggle("active");
+            }
+
+        }
+        
+    </script>
+
+
+
+   
+    </body>
+</html>

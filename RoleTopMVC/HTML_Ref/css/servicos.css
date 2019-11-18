@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+nav #bt-mobile-menu {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    list-style-type: none;
+}
+
+nav ul > li {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul > li > a {
+  display: block;
+  padding: 0.4em;
+    text-decoration: none;
+    color: #7d0093;
+    font-weight: bold;
+}
+
+nav ul > li > a:hover {
+    background-color: yellow;
+    color: black;
+}
+
+ /* ATIVAR NA PAGE Q ESTA  */
+a.active {
+  color: rgb(0, 255, 8);
+}
+
+
+/*=============================== FIM NAVBAR====================================== */
+
+.total img {
+   display: flex; 
+    margin-right: 10%;
+    width: 100%;
+     height: auto;
+}
+
+.total {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.esq h1 {
+    margin: 0;
+    color: white;
+}
+
+.esq {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+#back {
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(black, #7d0093, #ffc600); /* Standard syntax (must be last) */
+
+}
+
+button:hover {
+    color: black;
+    background-color: rgb(0, 255, 8);
+    border: 1.3px solid black;
+}
+
+#propaganda {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(0, 255, 8);
+    
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    margin: 20px 0 0 0;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#align button { 
+        background-color: white;
+        color:black;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+}
+
+#align button:hover {
+    background-color:#ffc600;
+    border: 2px solid white;
+    color: black;
+}
+
+#align {
+    text-align: center;
+}
+
+#background {
+    background-color: black;
+    border-radius: 20px;
+    width: 50%;
+    margin-left: 25%;
+    padding: 1em;
+    margin-top: 5%;
+    
+}
+
+main a {
+   text-align: center;
+   
+}
+
+
+/* ======================================================== RODAPE =============================================*/
+
+/* MEDIA QUERY */
+
+@media (max-width: 625px) {
+
+    nav #bt-mobile-menu {
+        display: block;
+  
+    }
+  
+    nav .bt-common-menu {
+        display:none;
+    }
+    
+    nav .bt-common-menu.active {
+        display: block;
+    }
+  
+    nav ul.mobile-mode {
+        display: flex;
+        flex-direction: column;
+    }
+    .total {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .esq {
+        text-align: center;
+    }
+
+    .total img {
+        display: none;
+    }
+
+    .esq h1 {
+        color: rgb(0, 255, 8);
+        padding: 0.5em;
+    }
+
+    #rodape-cima {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+  
+    #rodape-cima img {
+        width: 4%;
+      }
+  
+    #rodape-baixo p {
+        font-size: 12px;
+    }  
+
+    #icon-rodape {
+        width: 60%;
+        text-align: center;
+    }
+}
+
+
+#rodape-cima {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0 ;
+    
+  }
+  
+  #casa p {
+    padding: 2px;
+  }
+    
+  #contato ul li {
+    list-style-type: none;
+    padding: 4px;
+    
+  }
+    
+  #contato ul li img {
+    width: 1.5em;
+    padding: 1px 4px;
+  }
+  
+  #contato ul {
+    margin-left: -15%;
+  }
+  
+  #nav-rod ul {
+    margin-left: -10%;
+  }
+    
+  h3 {
+    padding: 5px 0;
+  }
+    
+   #nav-rod ul li {
+     list-style-type: none;
+   } 
+    
+  
+  #icon-rodape img {
+      width: 2em;
+      padding: 0.3em;
+      border-right: 2.5px solid black;
+      margin-top: 2%;
+  }
+    
+  #copy {
+      display: flex;
+      padding: 4px;
+  }
+    
+    
+  #copy img {
+      width: 2em;
+      padding: 0.3em;
+      
+  }
+    
+  #copy p {
+      margin-top: 5%;
+      font-weight: bold;
+  }
+    
+  #rodape-baixo {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    height: 50px;
+    background-color: white;
+     
+      
+  }
+    
+  #description p {
+    margin-top: 6%;
+    font-weight: bold;
+  }
+    

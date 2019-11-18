@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/events-aceitos-adm.css">
+    <script src="https://kit.fontawesome.com/349a64cb04.js"></script>
+    <title>Dashboard</title>
+
+</head>
+<body>
+    <header>
+            <nav>
+                <div class="section-container">
+                    <ul>
+                        <li id="bt-mobile-menu">
+                            <!-- HTML para colocar os ícones do FA -->
+                            <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html" class="active">Home</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Sobre Nós</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="servicos.html">Serviços</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Eventos</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Faq</a></li>
+                        <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html">Contato</a></li>
+                        <li><a id="bt-peca_ja" href="login.html"><i class="fas fa-user"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+    </header>
+
+    <br>
+    
+
+    <main>
+        <div id="total">
+            
+            <div id="esq">
+                <h3><a href="adm.html">Minha Conta</a></h3>
+                <div id="borda">
+                    <p><a href="eventos-adm.html">Aprovar / Recusar</a></p>
+                    <hr>
+                    <p style="background-color: #29FF00"><a href="events-aceitos-adm.html" style="color: white">Aceitos</a></p>
+                    <hr>
+                    <p><a href="events-negados-adm.html">Negados</a></p>
+                    <hr>
+                    <p><a href="events-pendentes-adm.html">Pendentes</a></p>
+                </div>
+            </div>
+
+            <div id="dir">
+                <table>
+
+                    <tr> <!--(TOPO)-->
+                      <th style="width:50%">Eventos</th>
+                      <th>Dia</th>
+                      <th>Status</th>
+                    </tr>
+                    
+                    <tr> <!--(linha1)-->
+                      <td>Lollapalozza</td>
+                      <td>28/10/2022</td>
+                      <td id="aprovado"><a class="abc">Aprovado</a></td>
+                    </tr>
+                    
+                    <tr> <!--(linha2)-->
+                        <td>So Track Boa</td>
+                        <td>28/10/2022</td>
+                        <td><a class="abc">Aprovado</a></td>
+                    </tr>
+                    
+                    <tr> <!--(linha3)-->
+                      <td>Fritando mais que Oleo</td>
+                      <td>28/10/2022</td>
+                      <td><a class="abc">Aprovado</a></td>
+                    </tr>
+                     
+                    <tr> <!--(linha4)-->
+                      <td>DELL a loca no gerente</td>
+                      <td>28/10/2022</td>
+                      <td><a class="abc">Aprovado</a></td>
+                    </tr>
+                    
+                    <tr> <!--(linha 5)-->
+                      <td>Socialização</td>
+                      <td>28/10/2022</td>
+                      <td><a class="abc">Aprovado</a></td>
+                    </tr>
+                  </table>                  
+            </div>
+        </div>
+
+                <!-- The Modal APROVADO-->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>RoleTop</h2>
+                        </div>
+                        <div class="modal-body">
+                            <p>INFORMAÇÕES DO EVENTO: <br> Nome do Evento: FRITANDO MAIS QUE OLEO <br> Dia: DIA Q EU QUISER <br> Valor pago: 20K DOL <br>
+                            Numero de Convidados: QUANTOS EU QUISER MANO   </p>
+                        </div>
+                    </div>
+                </div>
+        
+                
+    </main>   
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("aprovado");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }
+    </script>
+
+<script>
+        function toggleMobileMenu() {
+            var ul = document.querySelector("nav ul");
+            var commonButtons = document.querySelectorAll("nav .bt-common-menu");
+            var icon = document.querySelector(".icon > i");
+
+            ul.classList.toggle("mobile-mode");
+
+            if (icon.classList.contains("fa-bars")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.remove("fa");
+
+                icon.classList.add("fas");
+                icon.classList.add("fa-crown");
+            } else {
+                icon.classList.remove("fas");
+                icon.classList.remove("fa-crown");
+
+                icon.classList.add("fa");
+                icon.classList.add("fa-bars");
+            }
+
+            for (var button of commonButtons) {
+                button.classList.toggle("active");
+            }
+
+        }
+        
+    </script>
+ 
+</body>
+</html>

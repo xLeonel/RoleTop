@@ -1,0 +1,120 @@
+﻿@{
+    var nomeView = (string) ViewData["NomeView"];
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RoleTop</title>
+    <link href="~/img/logo.png" rel="icon" type="image/x-icon">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    <!-- bota o css aki -->
+    <!-- @if("servicos".Equals(nomeView))
+    {
+        
+    } -->
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/349a64cb04.js"></script> <!-- /* icone login */ -->
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="#home"><img src="~/img/logo.png" alt="logo da firma" style="width: 4em"></a>
+                <div id="topnav-left">
+                    <a href="#home" id="test">Home</a>
+                    <a href="#news">Sobre Nós</a>
+                    <a href="#contact">Serviços</a>
+                    <a href="#contact">Faq</a>
+                    <a href="#contact">Contato</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </a>
+                </div>
+                <div class="topnav-right">
+                    <a href="#search"><i class="fas fa-user fa-2x"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div id="footer-section-container">
+
+            <div id="social-media">
+                <a><img src="~/img/facebook.png" alt="icone facebook" title="facebook"></a>
+                <a><img src="~/img/whatsapp.png" alt="icone whatsapp" title="whatsapp"></a>
+                <a><img src="~/img/youtube.png" alt="icone youtube" title="youtube"></a>
+                <a><img src="~/img/instagram.png" alt="icone instagram" title="instagram"></a>
+
+            </div>
+
+            <div id="footer-copyright">
+                <a href="#home"><img src="~/img/logo.png" alt="logo da firma" title="RoleTop" style="width: 4em"></a>
+                <p>Copyright 2019 RoleTop</p>
+            </div>
+
+            <div id="footer-text-media">
+                <h4>RoleTop | Festas e Eventos Sociais</h4>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    
+</script>
+
+       <script>
+                var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+       
+
+
+
+</html>

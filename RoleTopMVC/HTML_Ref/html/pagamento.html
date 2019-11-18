@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/pagamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Pagamento</title>
+</head>
+<body>
+     
+    <header>
+        <nav>
+            <div class="section-container">
+                <ul>
+                    <li id="bt-mobile-menu">
+                        <!-- HTML para colocar os ícones do FA -->
+                        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html" class="active">Home</a></li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html#hamburgueres">Sobre Nós</a></li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html#shakes">Serviços</a></li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html#historia">Eventos</a></li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html#local">Faq</a></li>
+                    <li class="bt-common-menu"><a onclick="toggleMobileMenu()" href="index.html#local">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <br>
+    
+
+  
+
+    <main>
+        <div id="align">
+        <hgroup id="titulo">
+        <h2>Tela de Pagamento</h2>
+        <p>Qualquer problema entre contato , nossa equipe irá te ajudar</p> <i class="fa fa-smile"></i>
+        </hgroup>
+            <div class="row">
+                <div class="col-75">
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-50">
+
+                                    <h3>Endereço de Cobrança</h3>
+                                    <label for="fname"><i class="fa fa-user"></i> Nome Completo</label>
+                                    <input type="text" id="fname" name="firstname" placeholder="Fausto Silva">
+                                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                    <input type="text" id="email" name="email" placeholder="role@top.com">
+                                    <label for="adr"><i class="fa fa-address-card-o"></i> Endereço</label>
+                                    <input type="text" id="adr" name="address" placeholder="Av. Paulista, 508">
+                                    <label for="city"><i class="fa fa-institution"></i> Cidade</label>
+                                    <input type="text" id="city" name="city" placeholder="São Paulo">
+            
+                                    <div class="row">
+                                        <div class="col-50">
+                                            <label for="state">Estado</label>
+                                            <input type="text" id="state" name="state" placeholder="SP">
+                                        </div>
+
+                                        <div class="col-50">
+                                            <label for="zip">CEP</label>
+                                            <input type="text" id="zip" name="zip" placeholder="08007-800">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            
+                                <div class="col-50">
+                                    <h3>Pagamento</h3>
+                                    <label for="fname">Cartões aceitos:</label>
+
+                                    <div class="icon-container">
+                                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                        <i class="fa fa-barcode" style="color:black;"></i>
+                                    </div>
+                                    
+                                    <label for="cname">Nome Completo</label>
+                                    <input type="text" id="cname" name="cardname" placeholder="Fausto Silva">
+                                    <label for="ccnum">Número do Cartao</label>
+                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                    <label for="expmonth">Vencimento Mês</label>
+                                    <input type="text" id="expmonth" name="expmonth" placeholder="Agosto">
+
+                                    <div class="row">
+
+                                        <div class="col-50">
+                                            <label for="expyear">Vencimento Ano</label>
+                                            <input type="text" id="expyear" name="expyear" placeholder="2022">
+                                        </div>
+                                    
+                                        <div class="col-50">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" id="cvv" name="cvv" placeholder="352">
+                                        </div>
+                                    </div>
+ 
+                                </div>
+                            </div>
+                        <input type="submit"  id="pagar" value="Pagar">            
+                    </div>    
+                </div>            
+            </div>
+       
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>RoleTop</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Agora so esperar meu sub-secretário. Seu pagamento será analisado e se tudo der certo será aprovado. </p>
+                    <p>Você será notificado via email e no <a href="meus-eventos.html">seus eventos.</a></p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Qualquer dúvida entre em contato!</h3>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+    
+            // Get the button that opens the modal
+            var btn = document.getElementById("pagar");
+    
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+    
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+    
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+    
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                }
+            }
+    </script>
+    
+    <!-- NAVBAR -->
+
+    <script>
+        function toggleMobileMenu() {
+            var ul = document.querySelector("nav ul");
+            var commonButtons = document.querySelectorAll("nav .bt-common-menu");
+            var icon = document.querySelector(".icon > i");
+
+            ul.classList.toggle("mobile-mode");
+
+            if (icon.classList.contains("fa-bars")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.remove("fa");
+
+                icon.classList.add("fas");
+                icon.classList.add("fa-crown");
+            } else {
+                icon.classList.remove("fas");
+                icon.classList.remove("fa-crown");
+
+                icon.classList.add("fa");
+                icon.classList.add("fa-bars");
+            }
+
+            for (var button of commonButtons) {
+                button.classList.toggle("active");
+            }
+
+        }
+        
+    </script>
+    
+    
+
+</body>
+</html>
