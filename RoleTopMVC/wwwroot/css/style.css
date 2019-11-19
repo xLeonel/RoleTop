@@ -143,4 +143,102 @@ font-family: 'Noto Sans', sans-serif; */
     }
 
   }
+
+  img {
+    width: 100%; 
+    vertical-align: middle;
+  }
   /* ===============================MAIN================================== */
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* ==============================section 2 ========================= */
+
+h1 {
+  overflow: hidden;
+  text-align: center;
+  padding: 20px 0 40px 0;
+  /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR junto com o servicos */
+}
+
+h1:before,
+h1:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #818078, transparent);
+}
+
+h1:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+h1:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+#container-services {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR  */
+}
+
+.servicos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.servicos i, h3, p , a {
+  padding: 5px;
+}
+
+.servicos p {
+  text-align: center;
+}
+
+.servicos a {
+  cursor: pointer;
+  
+}
+
+@media screen and (max-width: 790px) {
+  #container-services {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .servicos {
+    padding: 10px;
+  }
+
+  h1 {
+    overflow: hidden;
+    text-align: center;
+    padding: 20px 0 25px 0;
+    /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR junto com o servicos */
+  }
+}
