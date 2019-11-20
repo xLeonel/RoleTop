@@ -18,7 +18,7 @@ font-family: 'Noto Sans', sans-serif; */
   
   .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -28,7 +28,7 @@ font-family: 'Noto Sans', sans-serif; */
   
   .topnav a:hover {
     /* background-color: #ddd; */
-    color: yellow;
+    color: rgb(242, 135, 5);
   }
   
   .topnav-right {
@@ -42,9 +42,13 @@ font-family: 'Noto Sans', sans-serif; */
   .topnav .icon {
       display: none;
   }
+
+  #gambiarra {
+    display: none;
+  }
   
   @media screen and (max-width: 625px) {
-    .topnav a:not(:first-child) , #test
+    .topnav a:not(:first-child) 
     {
         display: none;
     }
@@ -68,7 +72,7 @@ font-family: 'Noto Sans', sans-serif; */
       position: absolute;
       right: 0;
       top: 10px;
-      color: yellow
+      color: rgb(255, 166, 0);
     }
     
     .topnav-right {
@@ -110,7 +114,7 @@ font-family: 'Noto Sans', sans-serif; */
   #social-media {
     display: flex;
     align-items:  center;
-
+    cursor: pointer;
   }
 
   #social-media a {
@@ -150,7 +154,7 @@ font-family: 'Noto Sans', sans-serif; */
   }
   /* ===============================MAIN================================== */
 
-/* Fading animation */
+/* Fading animation
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -166,15 +170,16 @@ font-family: 'Noto Sans', sans-serif; */
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
-}
+} */
 
 /* ==============================section 2 ========================= */
 
 h1 {
   overflow: hidden;
   text-align: center;
-  padding: 20px 0 40px 0;
-  /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR junto com o servicos */
+  padding: 20px 0 0 0;
+  background-color: rgb(13, 13, 13); 
+  color: #ffffff;  
 }
 
 h1:before,
@@ -202,7 +207,9 @@ h1:after {
 #container-services {
   display: flex;
   justify-content: space-around;
-  /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR  */
+  background-color: rgb(13, 13, 13);  
+  height: 20em;
+  align-items: center;
 }
 
 .servicos {
@@ -210,6 +217,7 @@ h1:after {
   flex-direction: column;
   align-items: center;
   font-family: 'Noto Sans', sans-serif;
+  color: white;
 }
 
 .servicos i, h3, p , a {
@@ -221,14 +229,25 @@ h1:after {
 }
 
 .servicos a {
+  text-decoration: none;
+  color: white;
+}
+
+.servicos a:hover {
   cursor: pointer;
-  
+  color: rgb(242, 159, 5);
+}
+
+.servicos i {
+  color: rgb(242, 135, 5);
 }
 
 @media screen and (max-width: 790px) {
   #container-services {
     display: flex;
     flex-direction: column;
+    height: auto;
+    background-color: rgb(13, 13, 13);
   }
 
   .servicos {
@@ -239,6 +258,124 @@ h1:after {
     overflow: hidden;
     text-align: center;
     padding: 20px 0 25px 0;
-    /* background-color: rgba(47, 44, 44, 0.219);  SE QUISER COLORIR junto com o servicos */
+    background-color: rgb(13, 13, 13); 
+    color: #ffffff;  
   }
+}
+
+#container-mapForm {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(242, 94, 61);
+  height: 35em;
+  align-items: center;
+}
+
+#formulario h2{
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 0 0 20px 0;
+}
+
+#formulario iframe {
+  padding: 10px 0 0 0;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(217, 65, 105);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(217, 65, 105);
+  box-shadow: 10px 10px 5px 0px rgb(228, 44, 93);
+  
+}
+
+.form-test {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-test label {
+  padding: 10px 0 0 0;
+}
+
+.form-test label , button {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#enviar {
+  float: right;
+  padding: 10px 0 0 0;
+}
+
+#enviar button {
+  text-align: center;
+  width: 6em;
+  height: 3em;
+  cursor: pointer;
+  color: black;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 160, 0);
+}
+
+#enviar button:hover {
+  background-color: rgb(255, 200, 0);
+  color: black;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+
+input[type=text] {
+    width: 50em ;
+    height: 3em;
+    margin: 5px 0 0 0;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+textarea {
+  height: 6em;
+  vertical-align: top;
+  resize: vertical;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+
+@media screen and (max-width: 1350px) {
+  #container-mapForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(242, 94, 61);
+    height: auto;
+    align-items: center;
+  }
+
+  #formulario h2{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 20px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #container-mapForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(242, 94, 61);
+    height: auto;
+    align-items: center;
+  }
+
+  #formulario h2{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 20px 0 0 0;
+  }
+
+  input[type=text] {
+    width: 40em ;
+    height: 3em;
+    margin: 5px 0 0 0;
+}
+
+  #formulario iframe {
+    width: 38em;
+}
+
 }

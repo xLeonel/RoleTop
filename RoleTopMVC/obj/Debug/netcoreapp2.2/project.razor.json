@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
+  "FilePath": "c:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2961,6 +2961,11 @@
   "RootNamespace": "RoleTopMVC",
   "Documents": [
     {
+      "FilePath": "Views\\Servicos\\Index.cshtml",
+      "TargetPath": "Views\\Servicos\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -2971,8 +2976,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\SobreNos\\Index.cshtml",
+      "TargetPath": "Views\\SobreNos\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Faq\\Index.cshtml",
+      "TargetPath": "Views\\Faq\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2983,6 +3003,11 @@
     {
       "FilePath": "Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Contato\\Index.cshtml",
+      "TargetPath": "Views\\Contato\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

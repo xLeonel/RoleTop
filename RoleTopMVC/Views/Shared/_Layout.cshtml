@@ -28,19 +28,20 @@
     <header>
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="#home"><img src="~/img/logo.png" alt="logo da firma" style="width: 4em"></a>
+                <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="logo da firma" style="width: 4em"></a>
                 <div id="topnav-left">
-                    <a href="#home" id="test">Home</a>
-                    <a href="#news">Sobre Nós</a>
-                    <a href="#contact">Serviços</a>
-                    <a href="#contact">Faq</a>
-                    <a href="#contact">Contato</a>
+                    <a id="gambiarra"></a>
+                    <a asp-controller="Home" asp-action="Index" id="test">Home</a>
+                    <a asp-controller="SobreNos" asp-action="Index">Sobre Nós</a>
+                    <a asp-controller="Servicos" asp-action="Index">Serviços</a>
+                    <a asp-controller="Faq" asp-action="Index">Faq</a>
+                    <a asp-controller="Contato" asp-action="Index">Contato</a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                         <i class="fa fa-bars fa-2x"></i>
                     </a>
                 </div>
                 <div class="topnav-right">
-                    <a href="#search"><i class="fas fa-user fa-2x"></i></a>
+                    <a asp-controller="Login" asp-action="Index"><i class="fas fa-user fa-2x"></i></a>
                 </div>
             </div>
         </nav>
@@ -52,15 +53,14 @@
         <div id="footer-section-container">
 
             <div id="social-media">
-                <a><img src="~/img/facebook.png" alt="icone facebook" title="facebook"></a>
-                <a><img src="~/img/whatsapp.png" alt="icone whatsapp" title="whatsapp"></a>
-                <a><img src="~/img/youtube.png" alt="icone youtube" title="youtube"></a>
-                <a><img src="~/img/instagram.png" alt="icone instagram" title="instagram"></a>
-
+                <a href="https://www.facebook.com/Rol%C3%AATop-106506047400870/" target="_blank"><img src="~/img/facebook.png" alt="icone facebook" title="facebook"></a>
+                <a href="https://api.whatsapp.com/send?1=pr_BR&phone=5511960657694" target="_blank"><img src="~/img/whatsapp.png" alt="icone whatsapp" title="whatsapp"></a>
+                <a href="https://www.youtube.com/" target="_blank"><img src="~/img/youtube.png" alt="icone youtube" title="youtube"></a>
+                <a href="https://www.instagram.com/?hl=pt-br" target="_blank"><img src="~/img/instagram.png" alt="icone instagram" title="instagram"></a>
             </div>
 
             <div id="footer-copyright">
-                <a href="#home"><img src="~/img/logo.png" alt="logo da firma" title="RoleTop" style="width: 4em"></a>
+                <a asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" alt="logo da firma" title="RoleTop" style="width: 4em"></a>
                 <p>Copyright 2019 RoleTop</p>
             </div>
 
