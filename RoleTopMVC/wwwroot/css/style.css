@@ -174,7 +174,7 @@ font-family: 'Noto Sans', sans-serif; */
 
 /* ==============================section 2 ========================= */
 
-h1 {
+#titulo h1 {
   overflow: hidden;
   text-align: center;
   padding: 20px 0 0 0;
@@ -183,8 +183,8 @@ h1 {
   font-family: 'Noto Sans', sans-serif;
 }
 
-h1:before,
-h1:after {
+#titulo h1:before,
+#titulo h1:after {
   background-color: #000;
   content: "";
   display: inline-block;
@@ -195,12 +195,12 @@ h1:after {
   background: linear-gradient(to right, transparent, #818078, transparent);
 }
 
-h1:before {
+#titulo h1:before {
   right: 0.5em;
   margin-left: -50%;
 }
 
-h1:after {
+#titulo h1:after {
   left: 0.5em;
   margin-right: -50%;
 }
@@ -255,7 +255,7 @@ h1:after {
     padding: 10px;
   }
 
-  h1 {
+  #titulo h1 {
     overflow: hidden;
     text-align: center;
     padding: 20px 0 25px 0;

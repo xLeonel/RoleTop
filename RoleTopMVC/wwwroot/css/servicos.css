@@ -1,0 +1,56 @@
+*  {
+    margin:0;
+    padding:0;
+}
+
+
+
+#titulo-servicos {
+    overflow: hidden;
+  text-align: center;
+  padding: 20px 0 0 0;
+  
+  color: #000000;  
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#titulo-servicos h1:before,
+#titulo-servicos h1:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #000000, transparent);
+}
+
+#titulo-servicos h1:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+#titulo-servicos h1:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+
+.container-servicos {
+    display: flex;
+    /* min-height: 83.4vh;    */
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.servicos {
+    padding: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.servicos h3 {
+    color: black; 
+}
+
