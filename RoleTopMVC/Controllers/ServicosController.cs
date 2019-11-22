@@ -9,5 +9,11 @@ namespace RoleTopMVC.Controllers
             ViewData["NomeView"] = "Servicos";
             return View();
         }
+
+        public IActionResult Casamento()
+        {
+            ViewData["NomeView"] = "Casamento";
+            return View();
+        }
     }
 }

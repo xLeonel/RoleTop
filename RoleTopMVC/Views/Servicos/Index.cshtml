@@ -3,27 +3,29 @@
         <h1>Serviços</h1>
     </section>
     
-
-    <p>O RolêTop realiza festa de Casamento, Debutante, Bodas, Aniversários, Confraternizações, Bar Mitzva, Eventos Corporativos, Festa de Fim de Ano e todos os tipos de comemorações. Seja qual for seu evento, você precisa de um excelente serviço. O RolêTop pode ajudá-lo a realizar. Com mais de 38 anos de experiência no mercado, o RolêTop dispõe de todos os recursos para que sua festa ocorra da melhor maneira possível.</p>
-
-    <p>Nossos espaços estão disponíveis também para locações para exposições, gravações, desfiles e shows.</p>
+    <section class="texto-description">
+        <p>O RolêTop realiza festa de Casamento, Debutante, Bodas, Aniversários, Confraternizações, Bar Mitzva, Eventos Corporativos, Festa de Fim de Ano e todos os tipos de comemorações. Seja qual for seu evento, você precisa de um excelente serviço. O RolêTop pode ajudá-lo a realizar. Com mais de 38 anos de experiência no mercado, o RolêTop dispõe de todos os recursos para que sua festa ocorra da melhor maneira possível.</p>
+    </section>
+    <section class="texto-description">
+        <p>Nossos espaços estão disponíveis também para locações para exposições, gravações, desfiles e shows.</p>
+    </section>
 
     <div class="container-servicos">
         <div class="servicos">
-            <img src="~/img/casamento.jpg" alt="" title="" >
+            <a asp-controller="Servicos" asp-action="Casamento"><img src="~/img/casamento.jpg" alt="" title="" ></a>
             <h3>Casamento</h2>
         </div>
         <div class="servicos">
-            <img src="~/img/debutante.jpg" alt="" title="" >
+            <a asp-controller="Servicos" asp-action="Debutante"><img src="~/img/debutante.jpg" alt="" title="" ></a>
             <h3>Debutante</h2>
         </div>
     
         <div class="servicos">
-            <img src="~/img/corporativo.jpg" alt="" title="" >
+            <a asp-controller="Servicos" asp-action="Corporativo"><img src="~/img/corporativo.jpg" alt="" title="" ></a>
             <h3>Corporativo</h2>
         </div>
         <div class="servicos">
-            <img src="~/img/eventos.jpg" alt="" title="" >
+            <a asp-controller="Servicos" asp-action="Outros"><img src="~/img/eventos.jpg" alt="" title="" ></a>
             <h3>Eventos - Formatura</h3>
         </div>
     </div>

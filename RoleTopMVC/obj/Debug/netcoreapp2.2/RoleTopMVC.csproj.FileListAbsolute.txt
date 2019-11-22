@@ -91,3 +91,5 @@ C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Raz
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Faq\Index.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\SobreNos\Index.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Servicos\Index.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Servicos\Casamento.g.cshtml.cs
