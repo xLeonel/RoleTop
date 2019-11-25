@@ -79,4 +79,8 @@ main {
     flex-direction: column;
     position: relative;
   }
+  main {
+    height: auto;
+    /* background-color: rgb( 149,1,111); roxo maneirao */
+  }
 }
