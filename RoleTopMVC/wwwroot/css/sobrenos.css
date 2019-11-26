@@ -1,0 +1,44 @@
+#titulo-servicos {
+    overflow: hidden;
+    text-align: center;
+    padding: 35px 0 15px 0;
+    color: #000000;  
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  #titulo-servicos h1:before,
+  #titulo-servicos h1:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 25%;
+    background: linear-gradient(to right, transparent, #000000, transparent);
+  }
+  
+  #titulo-servicos h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  #titulo-servicos h1:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+  
+
+#fotoFachada img{
+    margin-left: 25%;
+    width: 50%;
+    padding: 20px 0 20px 0;
+    
+}
+#aboutUs{
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 0 0 20px 0;
+}
