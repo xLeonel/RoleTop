@@ -6,7 +6,7 @@ main {
     overflow: hidden;
     text-align: center;
     padding: 35px 0 15px 0;
-    color: #000000;  
+    color: #000000;   
     font-family: 'Noto Sans', sans-serif;
   }
   
@@ -34,7 +34,7 @@ main {
 
   .texto-description p {
     font-family: 'Noto Sans', sans-serif;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 10px 40px 10px;
     text-align: center;
   }
 

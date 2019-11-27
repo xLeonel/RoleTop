@@ -12,21 +12,56 @@
     
     <div class="container-servicos">
         <div class="servicos">
-            <a asp-controller="Servicos" asp-action="Casamento"><img src="~/img/casamento.jpg" alt="" title="" ></a>
-            <h3>Casamento</h2>
+            <a asp-controller="Servicos" asp-action="Casamento"><img src="~/img/casamento.jpg" alt="" title="" onmouseover="passo()" onmouseout="saiu()"></a>
+            <h3 id="demo">Casamento</h3>
         </div>
         <div class="servicos">
-            <a asp-controller="Servicos" asp-action="Debutante"><img src="~/img/debutante.jpg" alt="" title="" ></a>
-            <h3>Debutante</h2>
+            <a asp-controller="Servicos" asp-action="Debutante"><img src="~/img/debutante.jpg" alt="" title="" onmouseover="passo2()" onmouseout="saiu2()"></a>
+            <h3 id="demo2">Debutante</h3>
         </div>
     
         <div class="servicos">
-            <a asp-controller="Servicos" asp-action="Corporativo"><img src="~/img/corporativo.jpg" alt="" title="" ></a>
-            <h3>Corporativo</h2>
+            <a asp-controller="Servicos" asp-action="Corporativo"><img src="~/img/corporativo.jpg" alt="" title="" onmouseover="passo3()" onmouseout="saiu3()" ></a>
+            <h3 id="demo3">Corporativo</h3>
         </div>
         <div class="servicos">
-            <a asp-controller="Servicos" asp-action="Outros"><img src="~/img/eventos.jpg" alt="" title="" ></a>
-            <h3>Eventos - Formatura</h3>
+            <a asp-controller="Servicos" asp-action="Outros"><img src="~/img/eventos.jpg" alt="" title="" onmouseover="passo4()" onmouseout="saiu4()"></a>
+            <h3 id="demo4">Eventos - Formatura</h3>
         </div>
     </div>
+    
 </main>
+
+<script>
+    function passo() {
+  document.getElementById("demo").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu() {
+  document.getElementById("demo").style.color = "rgb(255,255,255)";
+}
+
+    function passo2() {
+  document.getElementById("demo2").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu2() {
+  document.getElementById("demo2").style.color = "rgb(255,255,255)";
+}
+
+    function passo3() {
+  document.getElementById("demo3").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu3() {
+  document.getElementById("demo3").style.color = "rgb(255,255,255)";
+}
+
+   function passo4() {
+  document.getElementById("demo4").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu4() {
+  document.getElementById("demo4").style.color = "rgb(255,255,255)";
+}
+</script>

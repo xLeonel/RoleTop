@@ -1,39 +1,42 @@
+
 #titulo-servicos {
-    overflow: hidden;
-    text-align: center;
-    padding: 35px 0 15px 0;
-    color: #000000;  
-    font-family: 'Noto Sans', sans-serif;
-  }
+  overflow: hidden;
+  text-align: center;
+  padding: 35px 0 15px 0;
+  color: #000000;  
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#titulo-servicos h1:before,
+#titulo-servicos h1:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #000000, transparent);
+}
+
+#titulo-servicos h1:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+#titulo-servicos h1:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
   
-  #titulo-servicos h1:before,
-  #titulo-servicos h1:after {
-    background-color: #000;
-    content: "";
-    display: inline-block;
-    height: 2px;
-    position: relative;
-    vertical-align: middle;
-    width: 25%;
-    background: linear-gradient(to right, transparent, #000000, transparent);
+  #fotoFachada {
+    padding: 20px 0 25px 0;
   }
-  
-  #titulo-servicos h1:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-  
-  #titulo-servicos h1:after {
-    left: 0.5em;
-    margin-right: -50%;
-  }
-  
 
 #fotoFachada img{
     margin-left: 25%;
     width: 50%;
-    padding: 20px 0 20px 0;
-    
+    border: 2px solid rgb(0, 0, 0);
 }
 #aboutUs{
     text-align: center;
@@ -42,3 +45,107 @@
     font-family: 'Noto Sans', sans-serif;
     padding: 0 0 20px 0;
 }
+
+#depocial {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0 20px 0;
+  background-color: rgb(242, 94, 61);
+}
+
+textarea {
+  height: 10em;
+  width: 40em;
+  text-align: center;
+  color: black;
+  resize: none;
+  border: 1px solid rgb(0, 0, 0) ;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+#depoimentos h2 {
+  text-align: center;
+  padding: 20px 0 15px 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#fotoDepoimento img{
+  width: 18%;
+  margin-top: -50px;
+  margin-left: 15px;
+  border: 1.5px solid rgb(0, 0, 0);
+}
+
+.conquistas {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Noto Sans', sans-serif;
+  
+}
+
+#diferencial {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0 0 0;
+  
+}
+
+#diferencial p {
+  padding: 10px 0 0 0;
+  color: white;
+  font-weight: bolder;
+}
+
+#conquest {
+  display: flex;
+  flex-direction: column;
+}
+
+#conquest h2 {
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 20px 0 15px 0;
+}
+
+@media screen and (max-width: 970px) {
+    #depocial { 
+      display: flex;
+      flex-direction: column;
+    }
+   
+    #depoimentos {
+      width: 50%;
+      margin-left: 25%;
+    }
+}
+
+@media screen and (max-width: 750px)
+{
+  textarea {
+    height: 10em;
+    width: 30em;
+  }
+}
+
+@media screen and (max-width: 550px)
+{
+  textarea {
+    height: 10em;
+    width: 20em;
+  }
+}
+
+@media screen and (max-width: 470px)
+{
+  textarea {
+    height: 10em;
+    width: 15em;
+  }
+}
+
+

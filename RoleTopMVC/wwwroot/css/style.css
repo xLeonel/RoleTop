@@ -192,7 +192,7 @@ font-family: 'Noto Sans', sans-serif; */
   position: relative;
   vertical-align: middle;
   width: 25%;
-  background: linear-gradient(to right, transparent, #818078, transparent);
+  background: linear-gradient(to right, transparent, #000000, transparent);
 }
 
 #titulo h1:before {
