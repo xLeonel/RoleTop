@@ -30,6 +30,11 @@
     { 
         <link href="~/css/sobrenos.css" rel="stylesheet" type="text/css">
     }
+    @if("Contato".Equals(nomeView))
+    { 
+        <link href="~/css/contato.css" rel="stylesheet" type="text/css">
+    }
+
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,7 +51,8 @@
                     <a asp-controller="Home" asp-action="Index" id="test">Home</a>
                     <a asp-controller="SobreNos" asp-action="Index">Sobre Nós</a>
                     <a asp-controller="Servicos" asp-action="Index">Serviços</a>
-                    <a asp-controller="Faq" asp-action="Index">Faq</a>
+                    <!-- <a asp-controller="Faq" asp-action="Index">Evento</a> -->
+                    <!-- <a asp-controller="Faq" asp-action="Index">Faq</a> -->
                     <a asp-controller="Contato" asp-action="Index">Contato</a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                         <i class="fa fa-bars fa-2x"></i>
@@ -83,7 +89,7 @@
     </footer>
 </body>
 
-
+<!-- script navbar -->
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
@@ -95,6 +101,7 @@
     }   
 </script>
 
+<!-- script slideshow -->
 <script>
     var slideIndex = 1;
     showSlides();
@@ -112,6 +119,7 @@ function showSlides(n) {
 }
 </script>
 
+<!-- script galeria -->
 <script>
 function openModal() {
   document.getElementById("myModal").style.display = "block";
@@ -148,6 +156,63 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+<!-- script do faq -->
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+<!-- script serviços -->
+<script>
+    function passo() {
+  document.getElementById("demo").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu() {
+  document.getElementById("demo").style.color = "rgb(255,255,255)";
+}
+
+    function passo2() {
+  document.getElementById("demo2").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu2() {
+  document.getElementById("demo2").style.color = "rgb(255,255,255)";
+}
+
+    function passo3() {
+  document.getElementById("demo3").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu3() {
+  document.getElementById("demo3").style.color = "rgb(255,255,255)";
+}
+
+   function passo4() {
+  document.getElementById("demo4").style.color = "rgb(255, 190, 0)";
+}
+
+function saiu4() {
+  document.getElementById("demo4").style.color = "rgb(255,255,255)";
 }
 </script>
 
