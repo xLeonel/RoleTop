@@ -2996,11 +2996,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Faq\\Index.cshtml",
-      "TargetPath": "Views\\Faq\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Login\\Index.cshtml",
       "TargetPath": "Views\\Login\\Index.cshtml",
       "FileKind": "mvc"
