@@ -1,19 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
+using RoleTopMVC.ViewModels;
 
 namespace RoleTopMVC.Controllers
 {
-    public class ServicosController : Controller
+    public class ServicosController : AbstractController
     {
         public IActionResult Index()
         {
-            ViewData["NomeView"] = "Servicos";
-            return View();
+            return View(new BaseViewModel()
+            {
+                NomeView = "Servicos",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
         }
 
         public IActionResult Casamento()
         {
-            ViewData["NomeView"] = "Casamento";
-            return View();
+            return View(new BaseViewModel()
+            {
+                NomeView = "Casamento",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
         }
     }
 }

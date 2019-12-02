@@ -1,13 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
+using RoleTopMVC.ViewModels;
 
 namespace RoleTopMVC.Controllers
 {
-    public class SobreNosController : Controller
+    public class SobreNosController : AbstractController
     {
         public IActionResult Index()
         {
-            ViewData["NomeView"] = "SobreNos";
-            return View();
+            return View(new BaseViewModel()
+            {
+                NomeView = "SobreNos",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
         }
     }
 }

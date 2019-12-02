@@ -2,19 +2,20 @@
     <div id="geral">
         <h1>Login</h1>
 
-        <form>
+        <form method="POST" action='@Url.Action("Index", "Login")'>
             <div class="tabela">
                 <label>Email</label>
-                <input type="text" >
+                <input type="text" name="email">
             </div>
 
             <div class="tabela">
                 <label>Senha</label>
-                <input type="password">
+                <input type="password" name="senha">
                 <p class="ps"><a>Esqueceu sua senha?</a></p>
             </div>
             
-            <button type="submit" class="butao">Entrar</button>
+            <input type="submit" value="Entrar" class="butao"/>
+
             <div class="linha">
                 <p>Não tem uma conta?</p>
                 <a asp-controller="Cadastro" asp-action="Index"><p id="register">Registre-se</p></a>

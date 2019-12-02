@@ -32,7 +32,12 @@ font-family: 'Noto Sans', sans-serif; */
   }
   
   .topnav-right {
+    display: flex;
     float :right;
+  }
+
+  .perfil {
+    cursor: pointer;
   }
 
   .topnav-right i {
@@ -46,8 +51,12 @@ font-family: 'Noto Sans', sans-serif; */
   #gambiarra {
     display: none;
   }
+
+  .perfil2 {
+    display: none;
+  }
   
-  @media screen and (max-width: 625px) {
+  @media screen and (max-width: 725px) {
     .topnav a:not(:first-child) 
     {
         display: none;
@@ -59,10 +68,10 @@ font-family: 'Noto Sans', sans-serif; */
         margin: -3px 0 0 0;
         color: white;
     }
-    
+
   } 
   
-  @media screen and (max-width: 625px) {
+  @media screen and (max-width: 725px) {
     .topnav.responsive 
     {
         position: block;

@@ -2,35 +2,35 @@
     <div id="geral">
         <h1>Cadastro</h1>
 
-        <form>
+        <form method="POST" action='@Url.Action("CadastrarCliente", "Cadastro")'>
             <div class="tabela">
                 <label>Nome</label>
-                <input type="text" placeholder="Nome Completo">
+                <input type="text" placeholder="Nome Completo" name="nome">
             </div>
 
             <div class="tabela">
                 <label>Senha</label>
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" name="senha">
             </div>
 
             <div class="tabela">
                 <label>Email</label>
-                <input type="text" placeholder="roletop@email.com">
+                <input type="email" placeholder="roletop@email.com" name="email">
             </div>
 
             <div class="tabela">
                 <label>Celular</label>
-                <input type="text" placeholder="(11) 91234-5678">
+                <input type="text" placeholder="(11) 91234-5678" name="telefone">
             </div>
-
+    
             <div class="tabela">
                 <label>CPF</label>
-                <input type="text" placeholder="000.111.222-33">
+                <input type="text" placeholder="000.111.222-33" name="cpf">
             </div>
             
             <div class="tabela">
                 <label>Data de Nascimento</label>
-                <input type="text" placeholder="dd/mm/aaaa">
+                <input type="date" placeholder="dd/mm/aaaa" name="data-nascimento">
             </div>
             
             <button type="submit" class="butao">Cadastre-se</button>

@@ -1,0 +1,2 @@
+tipo_usuario=1;nome=Administrador;senha=password;email=admin@admin.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=Vitor;senha=123456;email=test@email.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00

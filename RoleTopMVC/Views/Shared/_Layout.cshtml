@@ -1,6 +1,4 @@
-﻿@{
-    var nomeView = (string) ViewData["NomeView"];
-}
+﻿@model RoleTopMVC.ViewModels.BaseViewModel
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,31 +12,27 @@
     <link href="~/img/logo.png" rel="icon" type="image/x-icon">
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <!-- bota o css aki -->
-    <!-- @if("Home".Equals(nomeView)) 
-    {
-        <link href="~/css/style.css" rel="stylesheet" type="text/css">
-    } -->
-    @if("Servicos".Equals(nomeView))
+    @if("Servicos".Equals(@Model.NomeView))
     { 
         <link href="~/css/servicos.css" rel="stylesheet" type="text/css">
     }
-    @if("Casamento".Equals(nomeView))
+    @if("Casamento".Equals(@Model.NomeView))
     { 
         <link href="~/css/servicos-casamento.css" rel="stylesheet" type="text/css">
     }
-    @if("SobreNos".Equals(nomeView))
+    @if("SobreNos".Equals(@Model.NomeView))
     { 
         <link href="~/css/sobrenos.css" rel="stylesheet" type="text/css">
     }
-    @if("Contato".Equals(nomeView))
+    @if("Contato".Equals(@Model.NomeView))
     { 
         <link href="~/css/contato.css" rel="stylesheet" type="text/css">
     }
-    @if("Login".Equals(nomeView))
+    @if("Login".Equals(@Model.NomeView))
     {
         <link href="~/css/login.css" rel="stylesheet" type="text/css">
     }
-    @if("Cadastro".Equals(nomeView))
+    @if("Cadastro".Equals(@Model.NomeView))
     {
         <link href="~/css/cadastro.css" rel="stylesheet" type="text/css">
     }
@@ -67,7 +61,16 @@
                     </a>
                 </div>
                 <div class="topnav-right">
+                  @if(string.IsNullOrEmpty(@Model.UsuarioEmail))
+                  {
                     <a asp-controller="Login" asp-action="Index"><i class="fas fa-user fa-2x"></i></a>
+                  }
+                  else
+                  {
+                    <a class="perfil"><em>Olá @Model.UsuarioNome</em></a>
+                    <a class="perfil2"><em>Olá @Model.UsuarioNome</em></a>
+                    <a asp-controller="Login" asp-action="Logoff">Sair</a>
+                  }
                 </div>
             </div>
         </nav>
@@ -127,7 +130,7 @@ function showSlides(n) {
 }
 </script>
 
-@if("Casamento".Equals(nomeView))
+@if("Casamento".Equals(@Model.NomeView))
     { 
         <!-- script galeria -->
 <script>
