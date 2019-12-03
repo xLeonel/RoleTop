@@ -36,11 +36,13 @@ namespace RoleTopMVC.Controllers
 
                 cliente.TipoUsuario = (uint)TipoUsuario.CLIENTE;
                 clienteRepository.Inserir(cliente);
+
+                
                 return View("Sucesso", new RespostaViewModel()
                 {
                     NomeView = "Cadastro",
                     UsuarioEmail = ObterUsuarioSession(),
-                    UsuarioNome = ObterUsuarioNomeSession()
+                    UsuarioNome = ObterUsuarioNomeSession(),
                 });
             }
             catch (Exception e)

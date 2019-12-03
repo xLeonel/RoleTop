@@ -10,6 +10,7 @@ namespace RoleTopMVC.Controllers
     public class LoginController : AbstractController
     {
         private ClienteRepository clienteRepository = new ClienteRepository();
+        private EventoRepository eventoRepository = new EventoRepository();
 
         [HttpGet] //*PEGAR DADOS*/
         public IActionResult Index()
@@ -48,8 +49,7 @@ namespace RoleTopMVC.Controllers
                                 HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL, emailUser);
                                 HttpContext.Session.SetString(SESSION_CLIENTE_NOME, cliente.Nome);
                                 HttpContext.Session.SetString(SESSION_CLIENTE_TIPO, cliente.TipoUsuario.ToString());
-
-
+                                
                                 return RedirectToAction("Dashboard", "Login");
                             default:
                                 HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL, emailUser);
@@ -88,6 +88,30 @@ namespace RoleTopMVC.Controllers
                 UsuarioNome = ObterUsuarioNomeSession()
             });
         }
+
+        public IActionResult MeusEventos()
+        {
+            return View(new RespostaViewModel()
+            {
+                NomeView = "MeusEventos",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
+        }
+
+        public IActionResult SolicitarEventos()
+        {
+            
+            return View(new EventoViewModel()
+            {
+                NomeView = "SolicitarEventos",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession(),
+                Eventos = eventoRepository.ObterTodos(),
+                Cliente = clienteRepository.ObterPor(ObterUsuarioSession())
+            });
+        }
+
 
         public IActionResult Logoff()
         {

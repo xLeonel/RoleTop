@@ -36,11 +36,26 @@
     {
         <link href="~/css/cadastro.css" rel="stylesheet" type="text/css">
     }
+    @if("Dashboard".Equals(@Model.NomeView))
+    {
+      <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
+    }
+    @if("MeusEventos".Equals(@Model.NomeView))
+    {
+      <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css">
+    }
+    @if("SolicitarEventos".Equals(@Model.NomeView))
+    {
+      <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css">
+    }
+
+    
 
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/349a64cb04.js"></script> <!-- /* icone login */ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -67,8 +82,8 @@
                   }
                   else
                   {
-                    <a class="perfil"><em>Olá @Model.UsuarioNome</em></a>
-                    <a class="perfil2"><em>Olá @Model.UsuarioNome</em></a>
+                    <a class="perfil" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
+                    <a class="perfil2" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
                     <a asp-controller="Login" asp-action="Logoff">Sair</a>
                   }
                 </div>
@@ -229,6 +244,23 @@ function saiu3() {
 function saiu4() {
   document.getElementById("demo4").style.color = "rgb(255,255,255)";
 }
+</script>
+
+<!-- UPAR FOTO -->
+
+<script>
+   function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 </script>
 
 </html>

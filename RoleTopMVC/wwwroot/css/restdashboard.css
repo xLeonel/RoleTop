@@ -1,0 +1,139 @@
+* {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: rgb(13,13,13, 0.88);
+}
+
+#dash {
+    display: flex;
+    justify-content: space-around;
+}
+
+#opcaoUser {
+    margin-top: 15%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#opcaoUser a {
+    text-decoration: none;
+    width: 10em ;
+    height: auto;
+    margin: 15px 0 0 0;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    color: black;
+    background-color: rgb(255, 160, 0, 0.9);
+}
+
+#opcaoUser a:hover {
+    background-color:rgb(242, 94, 615);
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+#formulario h2{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 35px 0 15px 0;
+    color: rgb(242, 94, 615);
+  }
+
+  label {
+    color: white;
+  }
+  
+  .form-test {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-test label {
+    padding: 10px 0 0 0;
+  }
+  
+  .form-test label , button {
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  
+  #enviar {
+    float: right;
+    padding: 10px 0 10px 0;
+  }
+  
+  #enviar button {
+    text-align: center;
+    width: 6em;
+    height: 3em;
+    cursor: pointer;
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 160, 0);
+  }
+  
+  #enviar button:hover {
+    background-color: rgb(255, 200, 0);
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  input[type=text], select, input[type=date] {
+      width: 50em ;
+      height: 3em;
+      margin: 5px 0 0 0;
+      border: 1px solid rgb(0, 0, 0);
+  }
+  
+  textarea {
+    height: 6em;
+    vertical-align: top;
+    resize: vertical;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  #footer-section-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 850px)
+  {
+    #dash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #footer-section-container {
+      position: static;
+    }
+  }
+
+  @media screen and (max-width: 680px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 40em ;
+      height: 3em;
+    }
+  }
+
+  @media screen and (max-width: 545px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 30em ;
+      height: 3em;
+    }
+  }
+
+  @media screen and (max-width: 410px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 20em ;
+      height: 3em;
+    }
+  }
+  

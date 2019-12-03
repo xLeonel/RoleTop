@@ -180,3 +180,28 @@
       margin-left: 25%;
     }
   }
+
+  @media screen and (max-width: 680px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 40em ;
+      height: 3em;
+    }
+  }
+
+  @media screen and (max-width: 545px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 30em ;
+      height: 3em;
+    }
+  }
+
+  @media screen and (max-width: 410px)
+  {
+    input[type=text], select, input[type=date] {
+      width: 20em ;
+      height: 3em;
+    }
+  }
+  

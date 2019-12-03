@@ -1,2 +1,9 @@
 tipo_usuario=1;nome=Administrador;senha=password;email=admin@admin.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
 tipo_usuario=0;nome=Vitor;senha=123456;email=test@email.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=Zé Pequeno;senha=123456;email=zepequeno@email.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=Vitor Leonel de Lorena;senha=123456;email=vitor@email.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=Abigail Pereira dos Santos;senha=123456;email=pereira@email.com;celular=;cpf=0;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=GUSTAVO CASCO ZACHARIAS;senha=123456;email=gustavo@email.com;celular=;cpf=0;data_nascimento=01/06/2001 00:00:00
+tipo_usuario=0;nome=Dayane da Silva Leonel;senha=1234566;email=dayane@email.com;celular=;cpf=11122233;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=asdasdsad;senha=123;email=test@email.com;celular=4515154165;cpf=56156156;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=asdasdsada;senha=123456;email=asdsadas@email.com;celular=5156156156;cpf=516516556;data_nascimento=02/02/2001 00:00:00

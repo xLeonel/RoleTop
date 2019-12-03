@@ -1,3 +1,5 @@
+@model RoleTopMVC.ViewModels.EventoViewModel
+
 <main>
     <div id="contato">
         <div id="formulario">
@@ -27,10 +29,12 @@
                     <label for="evento">Tipo de Evento</label>
                     <select id="evento" required>
                         <option value="" disabled selected>Selecione</option>
-                        <option value="casamento">Casamento</option>
-                        <option value="debutante">Debutante</option>
-                        <option value="corporativo">Corporativo</option>
-                        <option value="outros">Outros</option>
+                        @foreach (var evento in Model.Eventos)
+                        {
+                            <option value=@evento.Nome>
+                                @evento.Nome
+                            </option>
+                        }
                     </select>
                 </div>
 

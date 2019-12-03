@@ -98,3 +98,5 @@ C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Raz
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Erro.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Sucesso.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Administrador\Dashboard.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\MeusEventos.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\SolicitarEventos.g.cshtml.cs
