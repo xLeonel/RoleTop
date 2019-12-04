@@ -1,3 +1,5 @@
+@model RoleTopMVC.ViewModels.EventoViewModel
+
 <main>
     <div id="dash">
         <div id="opcaoUser">
@@ -7,7 +9,16 @@
                 <a asp-controller="Login" asp-action="Logoff">Sair</a>
         </div>
         <div id="content">
-            
+            <h2>Seus Eventos</h2>
+            <div id="pedido">
+               @foreach (var evento in Model.Eventos)
+                {
+                    <p>@evento.NomeEvento</p>
+                    <p>@evento.DiaEvento</p>
+                    <p>@evento.StatusEvento</p>
+                }
+                
+            </div>
         </div>
     </div>
 </main>

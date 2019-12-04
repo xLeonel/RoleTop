@@ -95,12 +95,21 @@ body {
     border: 1px solid rgb(0, 0, 0);
   }
 
-  #footer-section-container {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  #content h2 {
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 35px 0 15px 0;
+    color: rgb(242, 94, 615);
   }
 
+  #pedido{
+    display: flex;
+    flex-direction: row;
+    color: white;
+     
+  }
+
+  
   @media screen and (max-width: 850px)
   {
     #dash {
@@ -108,9 +117,9 @@ body {
       flex-direction: column;
       align-items: center;
     }
-    #footer-section-container {
-      position: static;
-    }
+
+    
+    
   }
 
   @media screen and (max-width: 680px)

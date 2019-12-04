@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
+using RoleTopMVC.Models;
 using RoleTopMVC.Repositories;
 using RoleTopMVC.ViewModels;
 
@@ -11,6 +12,8 @@ namespace RoleTopMVC.Controllers
     {
         private ClienteRepository clienteRepository = new ClienteRepository();
         private EventoRepository eventoRepository = new EventoRepository();
+        private TipoEventoRepository tipoEventoRepository = new TipoEventoRepository();
+        private TipoPacoteRepository tipoPacoteRepository = new TipoPacoteRepository();
 
         [HttpGet] //*PEGAR DADOS*/
         public IActionResult Index()
@@ -49,7 +52,7 @@ namespace RoleTopMVC.Controllers
                                 HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL, emailUser);
                                 HttpContext.Session.SetString(SESSION_CLIENTE_NOME, cliente.Nome);
                                 HttpContext.Session.SetString(SESSION_CLIENTE_TIPO, cliente.TipoUsuario.ToString());
-                                
+
                                 return RedirectToAction("Dashboard", "Login");
                             default:
                                 HttpContext.Session.SetString(SESSION_CLIENTE_EMAIL, emailUser);
@@ -91,25 +94,68 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult MeusEventos()
         {
-            return View(new RespostaViewModel()
+            var emailUsuario = ObterUsuarioSession();
+            var eventosCliente = eventoRepository.ObterTodosPorCliente(emailUsuario);
+
+            return View(new EventoViewModel()
             {
                 NomeView = "MeusEventos",
                 UsuarioEmail = ObterUsuarioSession(),
-                UsuarioNome = ObterUsuarioNomeSession()
+                UsuarioNome = ObterUsuarioNomeSession(),
+                Eventos = eventosCliente,
+                Cliente = clienteRepository.ObterPor(ObterUsuarioSession())
             });
         }
 
         public IActionResult SolicitarEventos()
         {
-            
             return View(new EventoViewModel()
             {
                 NomeView = "SolicitarEventos",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession(),
-                Eventos = eventoRepository.ObterTodos(),
-                Cliente = clienteRepository.ObterPor(ObterUsuarioSession())
+                Eventos = tipoEventoRepository.ObterTodos(),
+                Cliente = clienteRepository.ObterPor(ObterUsuarioSession()),
+                Pacotes = tipoPacoteRepository.ObterTodos()
             });
+        }
+
+        public IActionResult RegistrarEvento(IFormCollection form)
+        {
+            Evento evento = new Evento();
+
+            Cliente cliente = new Cliente()
+            {
+                Nome = form["nome"],
+                Email = form["email"],
+                Celular = form["celular"]
+            };
+
+            evento.Cliente = cliente;
+            evento.DiaEvento = DateTime.Parse(form["diaEvento"]);
+            evento.TipoEvento = form["tipoEvento"];
+            evento.NumeroPessoas = uint.Parse(form["numeroConvidados"]);
+            evento.NomeEvento = form["nomeEvento"];
+            evento.PacoteEvento = form["pacoteEvento"];
+
+            if (eventoRepository.Inserir(evento))
+            {
+                return View("Sucesso", new RespostaViewModel()
+                {
+                    NomeView = "SolicitarEventos",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            }
+            else
+            {
+                return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "SolicitarEventos",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            }
         }
 
 

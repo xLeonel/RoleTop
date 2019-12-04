@@ -11,35 +11,52 @@
         <div id="content">
             <div id="formulario">
             <h2>Solicitar Evento</h2>
-            <form method="POST" action='@Url.Action("SolicitarEventos","Login")'>
+            <form method="POST" action='@Url.Action("RegistrarEvento","Login")'>
+                <div class="form-test">
+                    <label for="name">Nome do Rolê</label>
+                    <input type="text"  name="nomeEvento">
+                </div>
                 <div class="form-test">
                     <label for="name">Nome</label>
-                    <input type="text" value="@Model.Cliente.Nome">
+                    <input type="text" value="@Model.Cliente.Nome" name="nome">
                 </div>
                 
                 <div class="form-test">
                     <label for="email">Email</label>
-                    <input type="text" value="@Model.Cliente.Email" required>
+                    <input type="text" value="@Model.Cliente.Email" required name="email">
                 </div class="form-test">
             
                 <div class="form-test">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" value="@Model.Cliente.Celular" pattern="[0-9]{2} [9]{1}[0-9]{4}-[0-9]{4}">
+                    <label for="celular">Celular</label>
+                    <input type="text" value="@Model.Cliente.Celular" name="celular">
                 </div>
 
                 <div class="form-test">
-                    <label for="telefone">Dia do Evento</label>
-                    <input type="date" placeholder="" pattern="[0-9]{2} [9]{1}[0-9]{4}-[0-9]{4}">
+                    <label for="diaEvento">Dia do Evento</label>
+                    <input type="date" placeholder="" name="diaEvento">
                 </div>
 
                 <div class="form-test">
-                    <label for="evento">Tipo de Evento</label>
-                    <select id="evento" required>
-                        <option value="" disabled selected>Selecione</option>
+                    <label for="tipoEvento">Tipo de Evento</label>
+                    <select id="evento" required name="tipoEvento">
+                        <option value=""  disabled selected >Selecione</option>
                         @foreach (var evento in Model.Eventos)
                         {
-                            <option value=@evento.Nome>
-                                @evento.Nome
+                            <option value=@evento.TipoEvento>
+                                @evento.TipoEvento
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-test">
+                    <label for="pacoteEvento">Pacotes</label>
+                    <select id="evento" required name="pacoteEvento">
+                        <option value="" disabled selected>Selecione</option>
+                        @foreach (var pacote in Model.Pacotes)
+                        {
+                            <option value=@pacote.PacoteEvento>
+                                @pacote.PacoteEvento
                             </option>
                         }
                     </select>
@@ -47,7 +64,7 @@
 
                 <div class="form-test">
                     <label for="numeroConvidados">Número de Convidados</label>
-                    <input type="text" placeholder="" >
+                    <input type="text" placeholder="" name="numeroConvidados">
                 </div>
                 
                 <div class="form-test">
