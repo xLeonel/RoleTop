@@ -10,8 +10,9 @@ namespace RoleTopMVC.Models
         public string TipoEvento { get; set; }
         public uint NumeroPessoas { get; set; }
         public string NomeEvento { get; set; }
-        public StatusEvento StatusEvento { get; set; }
+        public uint Status { get; set; }
         public string PacoteEvento {get;set;}
+        public ulong Id {get;set;}
 
 
         public Evento()
@@ -21,7 +22,8 @@ namespace RoleTopMVC.Models
             this.DiaEvento = DiaEvento;
             this.TipoEvento = TipoEvento;
             this.NumeroPessoas = NumeroPessoas;
-            this.StatusEvento = (uint)StatusEvento.PENDENTE;
+            this.Status = (uint) StatusEvento.PENDENTE;
+            this.Id = 0;
         }
 
     }

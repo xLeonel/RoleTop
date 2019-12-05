@@ -1,7 +1,16 @@
 @model RoleTopMVC.ViewModels.BaseViewModel;
-
+<!-- src="http://placehold.it/180" script up foto -->
 <main>
-    <h1> 
-        @Model.UsuarioEmail adm logado
-    </h1>
+    <!-- <h1>@Model.UsuarioEmail logado</h1> -->
+    <div id="dashboard">
+        <img id="blah" src="~/img/foto_user.jpg" alt="your image" />
+        <h4>Olá <em>@Model.PrimeiroNome()</em></h4>
+        <!-- <input type='file' onchange="readURL(this);" /> -->
+        <div id="opcaoUser">
+            <a asp-controller="Administrador" asp-action="EventosAdm">Eventos</a>
+            <a asp-controller="Administrador" asp-action="">Blacklist</a>
+            <a asp-controller="Administrador" asp-action="">Configurações</a>
+            <a asp-controller="Login" asp-action="Logoff">Sair</a>
+        </div>
+    </div>
 </main>

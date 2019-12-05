@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RoleTopMVC.Enums;
 using RoleTopMVC.Models;
 
 namespace RoleTopMVC.ViewModels
@@ -8,6 +9,7 @@ namespace RoleTopMVC.ViewModels
         public List<Evento> Eventos {get;set;}
         public Cliente Cliente {get;set;}
         public List<Evento> Pacotes {get;set;}
+        public StatusEvento EventoStatus {get;set;}
        
 
         public EventoViewModel()
@@ -15,6 +17,7 @@ namespace RoleTopMVC.ViewModels
             this.Cliente = new Cliente();
             this.Eventos = new List<Evento>();
             this.Pacotes = new List<Evento>();
+            this.EventoStatus = StatusEvento.PENDENTE;
         }
     }
 }

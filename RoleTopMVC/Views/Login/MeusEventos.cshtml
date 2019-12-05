@@ -1,24 +1,43 @@
 @model RoleTopMVC.ViewModels.EventoViewModel
 
 <main>
-    <div id="dash">
+    <div id="dashboard">
         <div id="opcaoUser">
-                <a asp-controller="Login" asp-action="MeusEventos">Meus Eventos</a>
+                <a asp-controller="Login" asp-action="MeusEventos" id="sempad">Meus Eventos</a>
                 <a asp-controller="Login" asp-action="SolicitarEventos">Solicitar Eventos</a>
                 <a asp-controller="Login" asp-action="Configuracoes">Configurações</a>
                 <a asp-controller="Login" asp-action="Logoff">Sair</a>
         </div>
         <div id="content">
-            <h2>Seus Eventos</h2>
-            <div id="pedido">
-               @foreach (var evento in Model.Eventos)
-                {
-                    <p>@evento.NomeEvento</p>
-                    <p>@evento.DiaEvento</p>
-                    <p>@evento.StatusEvento</p>
-                }
-                
-            </div>
+            <section id="titulo">
+                <h2>Seus Eventos</h2>
+            </section>        
+                <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Nome</th>
+                                <th rowspan="2">Dia</th>
+                                <th rowspan="2">Tipo Evento</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var evento in Model.Eventos)
+                                {
+                                <tr>
+                                    <td>@evento.NomeEvento</td>
+                                    <td>@evento.DiaEvento.ToShortDateString()</td>
+                                    <td>@Model.EventoStatus</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                }
+                        </tbody>
+                    </table>
         </div>
     </div>
 </main>

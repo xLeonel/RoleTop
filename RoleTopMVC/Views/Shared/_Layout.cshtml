@@ -42,12 +42,17 @@
     }
     @if("MeusEventos".Equals(@Model.NomeView))
     {
-      <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
-      <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css">
+      <!-- <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
+      <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css"> -->
+      <link href="~/css/eventos-adm.css" rel="stylesheet" type="text/css">
     }
     @if("SolicitarEventos".Equals(@Model.NomeView))
     {
       <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css">
+    }
+    @if("EventosAdm".Equals(@Model.NomeView))
+    {
+      <link href="~/css/eventos-adm.css" rel="stylesheet" type="text/css">
     }
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -261,4 +266,15 @@ function saiu4() {
         }
 </script>
 
+<!-- script do dashboard -->
+<script>
+    $('#tab1show').hide();
+    $('#tab3show').hide();
+
+$('.ta').click(function () {
+    $('.tab').hide();
+    console.log("#"+$(this).attr("id")+"show");
+    $("#"+$(this).attr("id")+"show").show();
+});
+</script>
 </html>

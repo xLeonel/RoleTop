@@ -2976,6 +2976,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Administrador\\EventosAdm.cshtml",
+      "TargetPath": "Views\\Administrador\\EventosAdm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

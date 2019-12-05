@@ -102,12 +102,16 @@ body {
     color: rgb(242, 94, 615);
   }
 
-  #pedido{
-    display: flex;
-    flex-direction: row;
-    color: white;
-     
-  }
+  
+#content table {
+  /* background-color: yellow; */
+  text-align: center;
+  color: white;
+}
+
+#content td {
+    padding: 5px;
+}
 
   
   @media screen and (max-width: 850px)
