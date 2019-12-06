@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
+using RoleTopMVC.Models;
 using RoleTopMVC.Repositories;
 using RoleTopMVC.ViewModels;
 
@@ -20,12 +22,18 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult EventosAdm()
         {
+            var eventosPendente = eventoRepository.ObterEventoPor(0);
+            var eventosAprovado = eventoRepository.ObterEventoPor(1);
+            var eventosReprovado = eventoRepository.ObterEventoPor(2);
+
             return View(new EventoViewModel()
             {
                 NomeView = "EventosAdm",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession(),
-                Eventos = eventoRepository.ObterTodos()
+                Eventos = eventosPendente,
+                EventosAprovado = eventosAprovado,
+                EventosReprovado = eventosReprovado
             });
         }
 
@@ -36,12 +44,12 @@ namespace RoleTopMVC.Controllers
 
             if (eventoRepository.Atualizar(evento))
             {
-                return RedirectToAction("Dashboard", "Administrador");
+                return RedirectToAction("EventosAdm", "Administrador");
             }
             else
             {
                 return View(new RespostaViewModel($"Não foi possível aprovar esse pedido."){
-                    NomeView = "Dashboard",
+                    NomeView = "EventosAdm",
                     UsuarioEmail = ObterUsuarioSession(),
                     UsuarioNome = ObterUsuarioNomeSession()
                 });
@@ -55,12 +63,12 @@ namespace RoleTopMVC.Controllers
 
             if (eventoRepository.Atualizar(evento))
             {
-                return RedirectToAction("Dashboard", "Administrador");
+                return RedirectToAction("EventosAdm", "Administrador");
             }
             else
             {
                 return View(new RespostaViewModel($"Não foi possível aprovar esse pedido."){
-                    NomeView = "Dashboard",
+                    NomeView = "EventosAdm",
                     UsuarioEmail = ObterUsuarioSession(),
                     UsuarioNome = ObterUsuarioNomeSession()
                 });

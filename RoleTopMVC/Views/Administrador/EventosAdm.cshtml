@@ -45,7 +45,7 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach (var evento in Model.Eventos)
+                            @foreach (var evento in Model.EventosAprovado)
                                 {
                                 <tr>
                                     <td>@evento.NomeEvento</td>
@@ -123,7 +123,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach (var evento in Model.Eventos)
+                                @foreach (var evento in Model.EventosReprovado)
                                     {
                                     <tr>
                                         <td>@evento.NomeEvento</td>

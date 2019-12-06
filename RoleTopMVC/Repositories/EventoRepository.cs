@@ -83,6 +83,21 @@ namespace RoleTopMVC.Repositories
             return null;
         }
 
+        public List<Evento> ObterEventoPor(uint statusEvento)
+        {
+            List<Evento> eventos = new List<Evento>();
+            var todosEvento = ObterTodos();
+
+            foreach (var item in todosEvento)
+            {
+                if (item.Status.Equals(statusEvento))
+                {
+                    eventos.Add(item);
+                }
+            }
+            return eventos;
+        }
+
         public bool Atualizar(Evento evento)
         {
             var eventoTotais = File.ReadAllLines(PATH);

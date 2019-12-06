@@ -96,7 +96,7 @@ namespace RoleTopMVC.Controllers
         {
             var emailUsuario = ObterUsuarioSession();
             var eventosCliente = eventoRepository.ObterTodosPorCliente(emailUsuario);
-            
+
             return View(new EventoViewModel()
             {
                 NomeView = "MeusEventos",

@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj": {}
+    "C:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj": {
+    "C:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
+        "projectUniqueName": "C:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
         "projectName": "RoleTopMVC",
-        "projectPath": "C:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
-        "packagesPath": "C:\\Users\\48171009824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\obj\\",
+        "projectPath": "C:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\RoleTopMVC.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vitor\\Documents\\RoleTopMVC\\RoleTopMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\48171009824\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
