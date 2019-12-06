@@ -18,94 +18,54 @@
                 <div id="tab3" class="ta"><button class="butoes" id="recusado" style="font-weight: bolder">Recusados</button></div>
             </div>
 
-        <div id="testando">
-            <div id="amostra">
-                <!-- APROVADOS -->
-                <div id="tab1show" class="tab">
-                    <table id="aprovado">
-                        <thead>
-                            <tr>
-                                <th rowspan="2">Nome</th>
-                                <th rowspan="2">Dia</th>
-                                <th rowspan="2">Tipo Evento</th>
-                                <th colspan="2" rowspan="2">Aprovar</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <td colspan="6">
-                                    <p>Pedidos atualizados em @DateTime.Now</p>
-                                </td>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            @foreach (var evento in Model.EventosAprovado)
-                                {
-                                <tr>
-                                    <td>@evento.NomeEvento</td>
-                                    <td>@evento.DiaEvento.ToShortDateString()</td>
-                                    <td>@evento.TipoEvento</td>
-                                    <td><a ><i class="fas fa-check"></i></a></td>
-                                    <td><a ><i class="fas fa-times"></i></a></td>
-                                </tr>
-                                }
-                        </tbody>
-                    </table>
-                </div>
-                <!-- PENDENTES -->
-                <div id="tab2show" class="tab">
-                    <table id="pendente">
-                        <thead>
-                            <tr>
-                                <th rowspan="2">Nome</th>
-                                <th rowspan="2">Dia</th>
-                                <th rowspan="2">Tipo Evento</th>
-                                <th rowspan="2">Convidados</th>
-                                <th colspan="2" rowspan="2">Aprovar</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <td colspan="6">
-                                    <p>Pedidos atualizados em @DateTime.Now</p>
-                                </td>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            @foreach (var evento in Model.Eventos)
-                                {
-                                <tr>
-                                    <td>@evento.NomeEvento</td>
-                                    <td>@evento.DiaEvento.ToShortDateString()</td>
-                                    <td>@evento.TipoEvento</td>
-                                    <td>@evento.NumeroPessoas</td>
-                                    <td><a href='@Url.Action("Aprovar", "Administrador", new {id = @evento.Id})'><i class="fas fa-check"></i></a></td>
-                                    <td><a href='@Url.Action("Recusar", "Administrador", new {id = @evento.Id})'><i class="fas fa-times"></i></a></td>
-                                </tr>
-                                }
-                        </tbody>
-                    </table>
-                </div>
-        
-                <div id="tab3show" class="tab">
-                    <table id="recusado">
+            <div id="testando">
+                <div id="amostra">
+                    <!-- APROVADOS -->
+                    <div id="tab1show" class="tab">
+                        <table id="aprovado">
                             <thead>
                                 <tr>
                                     <th rowspan="2">Nome</th>
                                     <th rowspan="2">Dia</th>
                                     <th rowspan="2">Tipo Evento</th>
+                                    <th rowspan="2">Informações</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <p>Pedidos atualizados em @DateTime.Now</p>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var evento in Model.EventosAprovado)
+                                    {
+                                    <tr>
+                                        <td>@evento.NomeEvento</td>
+                                        <td>@evento.DiaEvento.ToShortDateString()</td>
+                                        <td>@evento.TipoEvento</td>
+                                        <td><a style="cursor:pointer"><em>Clique aqui</em></a></td>
+                                    </tr>
+                                    }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- PENDENTES -->
+                    <div id="tab2show" class="tab">
+                        <table id="pendente">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Nome</th>
+                                    <th rowspan="2">Dia</th>
+                                    <th rowspan="2">Tipo Evento</th>
+                                    <th rowspan="2">Convidados</th>
                                     <th colspan="2" rowspan="2">Aprovar</th>
                                 </tr>
                                 <tr>
@@ -123,23 +83,59 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach (var evento in Model.EventosReprovado)
+                                @foreach (var evento in Model.Eventos)
                                     {
                                     <tr>
                                         <td>@evento.NomeEvento</td>
                                         <td>@evento.DiaEvento.ToShortDateString()</td>
                                         <td>@evento.TipoEvento</td>
-                                        <td><a ><i class="fas fa-check"></i></a></td>
-                                        <td><a ><i class="fas fa-times"></i></a></td>
+                                        <td>@evento.NumeroPessoas</td>
+                                        <td><a href='@Url.Action("Aprovar", "Administrador", new {id = @evento.Id})'><i class="fas fa-check"></i></a></td>
+                                        <td><a href='@Url.Action("Recusar", "Administrador", new {id = @evento.Id})'><i class="fas fa-times"></i></a></td>
                                     </tr>
                                     }
                             </tbody>
-                    </table>
+                        </table>
+                    </div>
+            
+                    <div id="tab3show" class="tab">
+                        <table id="recusado">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Nome</th>
+                                        <th rowspan="2">Dia</th>
+                                        <th rowspan="2">Tipo Evento</th>
+                                        <th rowspan="2">Informações</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>Pedidos atualizados em @DateTime.Now</p>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var evento in Model.EventosReprovado)
+                                        {
+                                        <tr>
+                                            <td>@evento.NomeEvento</td>
+                                            <td>@evento.DiaEvento.ToShortDateString()</td>
+                                            <td>@evento.TipoEvento</td>
+                                            <td><a style="cursor:pointer"><em>Clique aqui</em></a></td>
+                                        </tr>
+                                        }
+                                </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
         </div>
     </div>
 </main>

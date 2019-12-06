@@ -70,18 +70,18 @@ body {
     border: 1px solid rgb(0, 0, 0);
 }
 
-/* #aprovado {
-    background-color: green;
+#aprovado:focus {
+    background-color: rgb(98, 243, 98);
     
 }
 
-#pendente {
-    background-color: yellow;
+#pendente:focus {
+    background-color: rgb(251, 251, 71);
 }
 
-#recusado {
-    background-color: red;
-} */
+#recusado:focus {
+    background-color: rgb(255, 75, 75);
+}
 
 table {
     /* background-color: yellow; */
@@ -104,6 +104,7 @@ th {
 .fas.fa-times {
     color: red;
 }
+
 
 @media screen and (max-width: 850px)
   {

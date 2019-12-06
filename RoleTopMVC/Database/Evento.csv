@@ -1,1 +1,2 @@
-id=0;evento_nome=Projeto X;cliente_nome=Vitor Leonel;cliente_email=leonel@email.com;cliente_celular=11991195734;dia_evento=06/06/2020 00:00:00;tipo_evento=Outros;quantidade_pessoas=1200;status_evento=1
+id=1;evento_nome=Projeto X;cliente_nome=Vitor Leonel;cliente_email=leonel@email.com;cliente_celular=11991195734;dia_evento=05/06/2001 00:00:00;tipo_evento=Casamento;quantidade_pessoas=500;status_evento=1
+id=2;evento_nome=Open Bar;cliente_nome=Vitor Leonel;cliente_email=leonel@email.com;cliente_celular=11991195734;dia_evento=08/02/2020 00:00:00;tipo_evento=Casamento;quantidade_pessoas=15000;status_evento=2

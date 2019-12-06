@@ -1,9 +1,7 @@
 using System;
-using System.ComponentModel;
 
 namespace RoleTopMVC.Enums
 {
-    [Flags]
     public enum StatusEvento : uint
     {
         PENDENTE = 0,

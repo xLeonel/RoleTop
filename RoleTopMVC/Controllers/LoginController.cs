@@ -96,6 +96,7 @@ namespace RoleTopMVC.Controllers
         {
             var emailUsuario = ObterUsuarioSession();
             var eventosCliente = eventoRepository.ObterTodosPorCliente(emailUsuario);
+            var nomeEnum = Enum.GetNames(typeof(StatusEvento));
 
             return View(new EventoViewModel()
             {
@@ -103,7 +104,8 @@ namespace RoleTopMVC.Controllers
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession(),
                 Eventos = eventosCliente,
-                Cliente = clienteRepository.ObterPor(ObterUsuarioSession())
+                Cliente = clienteRepository.ObterPor(ObterUsuarioSession()),
+                StatusEnum = nomeEnum
             });
         }
 

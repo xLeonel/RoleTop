@@ -14,7 +14,8 @@ namespace RoleTopMVC.ViewModels
         public List<Evento> EventosReprovado { get; set; }
         public Cliente Cliente { get; set; }
         public List<Evento> Pacotes { get; set; }
-
+        public  string[]  StatusEnum {get;set;}
+       
         public EventoViewModel()
         {
             this.Cliente = new Cliente();

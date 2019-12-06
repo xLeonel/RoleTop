@@ -20,10 +20,12 @@ namespace RoleTopMVC.Repositories
 
          public bool Inserir(Evento evento)
         {
+            var quantidadeEvento = File.ReadAllLines(PATH).Length;
+            evento.Id = (ulong) ++quantidadeEvento;
             var linha = new string[] { PrepararRegistroCSV(evento) };
             File.AppendAllLines(PATH, linha);
 
-            return true;            
+            return true;         
         }
 
         private string PrepararRegistroCSV(Evento evento)
