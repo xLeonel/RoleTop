@@ -1,4 +1,7 @@
 using System;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
@@ -111,15 +114,25 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult SolicitarEventos()
         {
-            return View(new EventoViewModel()
+            var usuarioLogado = ObterUsuarioSession();
+
+            if (string.IsNullOrEmpty(usuarioLogado))
             {
-                NomeView = "SolicitarEventos",
-                UsuarioEmail = ObterUsuarioSession(),
-                UsuarioNome = ObterUsuarioNomeSession(),
-                Eventos = tipoEventoRepository.ObterTodos(),
-                Cliente = clienteRepository.ObterPor(ObterUsuarioSession()),
-                Pacotes = tipoPacoteRepository.ObterTodos()
-            });
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View(new EventoViewModel()
+                {
+                    NomeView = "SolicitarEventos",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession(),
+                    Eventos = tipoEventoRepository.ObterTodos(),
+                    Cliente = clienteRepository.ObterPor(ObterUsuarioSession()),
+                    Pacotes = tipoPacoteRepository.ObterTodos()
+                });
+            }
+
         }
 
         public IActionResult RegistrarEvento(IFormCollection form)
@@ -160,6 +173,58 @@ namespace RoleTopMVC.Controllers
             }
         }
 
+        public IActionResult RecuperarSenha()
+        {
+            string emailDestinatario = "gugugacasco007@gmail.com";
+            try
+            {
+                // Estancia da Classe de Mensagem
+                MailMessage _mailMessage = new MailMessage();
+                // Remetente
+                _mailMessage.From = new MailAddress("roletop.senai@gmail.com");
+
+                // Destinatario seta no metodo abaixo
+
+                //Contrói o MailMessage
+                _mailMessage.CC.Add(emailDestinatario);
+                _mailMessage.Subject = "Teste RoleTop";
+                _mailMessage.IsBodyHtml = true;
+                _mailMessage.Body = "<b>salve cachorro</b><p>Teste Parágrafo</p>";
+
+                //CONFIGURAÇÃO COM PORTA
+                SmtpClient _smtpClient = new SmtpClient("smtp.gmail.com", Convert.ToInt32("587"));
+
+                //CONFIGURAÇÃO SEM PORTA
+                // SmtpClient _smtpClient = new SmtpClient(UtilRsource.ConfigSmtp);
+
+                // Credencial para envio por SMTP Seguro (Quando o servidor exige autenticação)
+                _smtpClient.UseDefaultCredentials = false;
+                _smtpClient.Credentials = new NetworkCredential("roletop.senai@gmail.com", "senai@132");
+
+                _smtpClient.EnableSsl = true;
+
+                _smtpClient.Send(_mailMessage);
+
+                return View("Sucesso", new RespostaViewModel()
+                {
+                    NomeView = "RecuperarSenha",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });;
+
+            }
+            catch (Exception)
+            {
+               return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "RecuperarSenha",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });;
+            }
+
+           
+        }
 
         public IActionResult Logoff()
         {

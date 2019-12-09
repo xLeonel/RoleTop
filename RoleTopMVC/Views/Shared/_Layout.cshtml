@@ -53,12 +53,15 @@
     @if("EventosAdm".Equals(@Model.NomeView))
     {
       <link href="~/css/eventos-adm.css" rel="stylesheet" type="text/css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     }
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/349a64cb04.js"></script> <!-- /* icone login */ -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>   
 </head>
 
 <body>
@@ -85,9 +88,18 @@
                   }
                   else
                   {
-                    <a class="perfil" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
-                    <a class="perfil2" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
-                    <a asp-controller="Login" asp-action="Logoff">Sair</a>
+                    @if(@Model.UsuarioEmail == "admin@admin.com")
+                    {
+                      <a class="perfil" asp-controller="Administrador" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
+                      <a class="perfil2" asp-controller="Administrador" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
+                      <a asp-controller="Login" asp-action="Logoff">Sair</a>
+                    }
+                    else
+                    {
+                      <a class="perfil" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
+                      <a class="perfil2" asp-controller="Login" asp-action="Dashboard"><em>Olá @Model.PrimeiroNome()</em></a>
+                      <a asp-controller="Login" asp-action="Logoff">Sair</a>
+                    }
                   }
                 </div>
             </div>

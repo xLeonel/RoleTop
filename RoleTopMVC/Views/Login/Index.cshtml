@@ -5,15 +5,15 @@
         <form method="POST" action='@Url.Action("Index", "Login")'>
             <div class="tabela">
                 <label>Email</label>
-                <input type="text" name="email">
+                <input type="text" name="email" required>
             </div>
 
             <div class="tabela">
                 <label>Senha</label>
-                <input type="password" name="senha">
-                <p class="ps"><a>Esqueceu sua senha?</a></p>
+                <input type="password" name="senha" required>
+                <p class="ps"><a asp-controller="Login" asp-action="RecuperarSenha" style="color:rgb(242, 94, 615);text-decoration:none">Esqueceu sua senha?</a></p>
             </div>
-            
+        
             <input type="submit" value="Entrar" class="butao"/>
 
             <div class="linha">

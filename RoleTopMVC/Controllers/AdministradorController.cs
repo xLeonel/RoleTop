@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
@@ -25,6 +26,7 @@ namespace RoleTopMVC.Controllers
             var eventosPendente = eventoRepository.ObterEventoPor(0);
             var eventosAprovado = eventoRepository.ObterEventoPor(1);
             var eventosReprovado = eventoRepository.ObterEventoPor(2);
+            var nomeEnum = Enum.GetNames(typeof(StatusEvento));
 
             return View(new EventoViewModel()
             {
@@ -33,7 +35,8 @@ namespace RoleTopMVC.Controllers
                 UsuarioNome = ObterUsuarioNomeSession(),
                 Eventos = eventosPendente,
                 EventosAprovado = eventosAprovado,
-                EventosReprovado = eventosReprovado
+                EventosReprovado = eventosReprovado,
+                StatusEnum = nomeEnum
             });
         }
 
