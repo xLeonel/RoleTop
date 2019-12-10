@@ -99,6 +99,10 @@ input[type=text], input[type=password] {
     width: 100%;
   }
 
+  #enviarSenha {
+      padding: 0 0 15px 0;
+  }
+
   @media screen and (min-width: 0px)
   {
     .linha, .ps{

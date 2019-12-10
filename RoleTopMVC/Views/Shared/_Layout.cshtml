@@ -32,11 +32,27 @@
     {
         <link href="~/css/login.css" rel="stylesheet" type="text/css">
     }
+    @if("RecuperarSenha".Equals(@Model.NomeView))
+    {
+        <link href="~/css/login.css" rel="stylesheet" type="text/css">
+    }
+    @if("MudarSenha".Equals(@Model.NomeView))
+    {
+        <link href="~/css/login.css" rel="stylesheet" type="text/css">
+    }
+    @if("MudarSenhaIndex".Equals(@Model.NomeView))
+    {
+        <link href="~/css/login.css" rel="stylesheet" type="text/css">
+    }
     @if("Cadastro".Equals(@Model.NomeView))
     {
         <link href="~/css/cadastro.css" rel="stylesheet" type="text/css">
     }
     @if("Dashboard".Equals(@Model.NomeView))
+    {
+      <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
+    }
+    @if("Configuracoes".Equals(@Model.NomeView))
     {
       <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
     }

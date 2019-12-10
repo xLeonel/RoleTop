@@ -1,3 +1,15 @@
 <main>
-    a
+    <div id="geral">
+        <h1>Recuperar Senha</h1>
+
+        <form method="POST" action='@Url.Action("RecuperarSenhaMetodo", "Login")'>
+
+            <div class="tabela" id="enviarSenha" >
+                <label>Email</label>
+                <input type="text" name="email" required >
+            </div>
+
+            <input type="submit" value="Enviar" class="butao" />
+        </form>
+    </div>
 </main>

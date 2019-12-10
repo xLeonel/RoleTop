@@ -10,7 +10,7 @@ namespace RoleTopMVC.Repositories
 
         public ClienteRepository()
         {
-            if(!File.Exists(PATH))
+            if (!File.Exists(PATH))
             {
                 File.Create(PATH).Close();
             }
@@ -21,15 +21,15 @@ namespace RoleTopMVC.Repositories
             var linha = new string[] { PrepararRegistroCSV(cliente) };
             File.AppendAllLines(PATH, linha);
 
-            return true;            
+            return true;
         }
 
-        public Cliente ObterPor (string email)
+        public Cliente ObterPor(string email)
         {
             var linhas = File.ReadAllLines(PATH);
             foreach (var item in linhas)
             {
-                if(ExtrairValorDoCampo("email", item).Equals(email))
+                if (ExtrairValorDoCampo("email", item).Equals(email))
                 {
                     Cliente cliente = new Cliente();
                     cliente.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_usuario", item));
@@ -44,6 +44,40 @@ namespace RoleTopMVC.Repositories
                 }
             }
             return null;
+        }
+
+        public bool AtualizarSenha(string email, string senhaNova)
+        {
+            var cliente = ObterPor(email);
+            cliente.Senha = senhaNova;
+            var clienteCSV = PrepararRegistroCSV(cliente);
+            var linhas = File.ReadAllLines(PATH);
+            var linhaUsuario = -1;
+            var resultado = false;
+
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                if (cliente.Email == ExtrairValorDoCampo("email", linhas[i]))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                    break;
+                }
+            }
+
+            if (resultado)
+            {
+                linhas[linhaUsuario] = clienteCSV;
+                File.WriteAllLines(PATH, linhas);
+            }
+
+             return resultado;
+
+            
+
+            // eventoTotais[linhaPedido] = eventoCSV;
+            // File.WriteAllLines(PATH, eventoTotais);
+
         }
 
         private string PrepararRegistroCSV(Cliente cliente)

@@ -1,0 +1,23 @@
+<main>
+    <div id="geral">
+        <h1>Mudar Senha</h1>
+
+        <form method="POST" action='@Url.Action("MudarSenhaMetodo", "Login")'>
+
+            <div class="tabela">
+                <label>Nova Senha</label>
+                <input type="text" name="senha" required>
+            </div>
+
+            <div class="tabela">
+                <label>Confirme a Senha</label>
+                <input type="text" name="senha-confirm" required>
+            </div>
+
+            <input type="submit" value="Mudar" class="butao"/>
+
+        </form>
+    </div>
+    
+
+</main>

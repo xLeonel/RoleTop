@@ -175,7 +175,53 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult RecuperarSenha()
         {
-            string emailDestinatario = "gugugacasco007@gmail.com";
+            return View(new EventoViewModel()
+            {
+                NomeView = "RecuperarSenha",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
+        }
+
+        public IActionResult RecuperarSenhaMetodo(IFormCollection form)
+        {
+            string emailDestinatario = form["email"];
+            var bolianUser = clienteRepository.ObterPor(emailDestinatario);
+            if (bolianUser == null)
+            {
+                return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "RecuperarSenhaMetodo",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            }
+
+            var bolian = EnviarEmail(emailDestinatario);
+
+            if (bolian)
+            {
+                return View("Sucesso", new RespostaViewModel()
+                {
+                    NomeView = "RecuperarSenhaMetodo",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            }
+            else
+            {
+                return View("Erro", new RespostaViewModel()
+                {
+                    NomeView = "RecuperarSenhaMetodo",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            }
+        }
+
+        public bool EnviarEmail(string emailDestinatario)
+        {
+            var usuario = clienteRepository.ObterPor(emailDestinatario);
             try
             {
                 // Estancia da Classe de Mensagem
@@ -187,9 +233,9 @@ namespace RoleTopMVC.Controllers
 
                 //Contrói o MailMessage
                 _mailMessage.CC.Add(emailDestinatario);
-                _mailMessage.Subject = "Teste RoleTop";
+                _mailMessage.Subject = "Recuperar Senha";
                 _mailMessage.IsBodyHtml = true;
-                _mailMessage.Body = "<b>salve cachorro</b><p>Teste Parágrafo</p>";
+                _mailMessage.Body = $"<b>Olá você pediu sua senha?</b><p>Sua senha: {usuario.Senha}</p>";
 
                 //CONFIGURAÇÃO COM PORTA
                 SmtpClient _smtpClient = new SmtpClient("smtp.gmail.com", Convert.ToInt32("587"));
@@ -205,25 +251,75 @@ namespace RoleTopMVC.Controllers
 
                 _smtpClient.Send(_mailMessage);
 
-                return View("Sucesso", new RespostaViewModel()
-                {
-                    NomeView = "RecuperarSenha",
-                    UsuarioEmail = ObterUsuarioSession(),
-                    UsuarioNome = ObterUsuarioNomeSession()
-                });;
+                return true;
 
             }
             catch (Exception)
             {
-               return View("Erro", new RespostaViewModel()
+                return false;
+            }
+        }
+
+        public IActionResult Configuracoes()
+        {
+            return View(new EventoViewModel()
+            {
+                NomeView = "Configuracoes",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
+        }
+
+        public IActionResult MudarSenha()
+        {
+            return View(new EventoViewModel()
+            {
+                NomeView = "MudarSenha",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession()
+            });
+        }
+
+        public IActionResult MudarSenhaMetodo(IFormCollection form)
+        {
+            var senha = form["senha"];
+            var senhaConfirm = form["senha-confirm"];
+            var userEmail = ObterUsuarioSession();
+            var user = clienteRepository.ObterPor(userEmail);
+
+            if (senha != senhaConfirm)
+            {
+                return View("Erro", new RespostaViewModel()
                 {
-                    NomeView = "RecuperarSenha",
+                    NomeView = "RecuperarSenhaMetodo",
                     UsuarioEmail = ObterUsuarioSession(),
                     UsuarioNome = ObterUsuarioNomeSession()
-                });;
+                });
+            }
+            else
+            {
+                var atualizar = clienteRepository.AtualizarSenha(userEmail,senhaConfirm);
+                if (atualizar)
+                {
+                    return View("Sucesso", new RespostaViewModel()
+                    {
+                        NomeView = "RecuperarSenhaMetodo",
+                        UsuarioEmail = ObterUsuarioSession(),
+                        UsuarioNome = ObterUsuarioNomeSession()
+                    });
+                }
+                else
+                {
+                    return View("Erro", new RespostaViewModel()
+                    {
+                        NomeView = "RecuperarSenhaMetodo",
+                        UsuarioEmail = ObterUsuarioSession(),
+                        UsuarioNome = ObterUsuarioNomeSession()
+                    });
+                }
             }
 
-           
+
         }
 
         public IActionResult Logoff()

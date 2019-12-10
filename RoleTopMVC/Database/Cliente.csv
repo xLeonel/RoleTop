@@ -1,3 +1,4 @@
 tipo_usuario=1;nome=Administrador;senha=password;email=admin@admin.com;celular=0;cpf=0;data_nascimento=01/01/0001 00:00:00
-tipo_usuario=0;nome=Vitor Leonel;senha=asd;email=vitorleonel100@hotmail.com;celular=11991195734;cpf=11122233;data_nascimento=06/06/2001 00:00:00
+tipo_usuario=0;nome=Vitor Leonel;senha=123;email=vitorleonel100@hotmail.com;celular=11991195734;cpf=11122233;data_nascimento=06/06/2001 00:00:00
 tipo_usuario=0;nome=Abigail Pereira dos Santos;senha=asd;email=pereira@email.com;celular=11991195734;cpf=11122233;data_nascimento=05/05/2005 00:00:00
+tipo_usuario=0;nome=Casco;senha=0711;email=gugugacasco007@gmail.com;celular=970707070;cpf=0;data_nascimento=25/02/2222 00:00:00

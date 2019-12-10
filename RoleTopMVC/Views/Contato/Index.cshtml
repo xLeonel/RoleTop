@@ -93,11 +93,13 @@
 
             <div id="faq">
                 <h2>Perguntas Frequentes</h2>
-                <button class="accordion">Pergunta 1</button>
+                @foreach(var item in Model.Perguntas)
+                {
+                <button class="accordion">@item.Question</button>
                 <div class="panel">
-                    <p>Lorem ipsum...</p>
+                    <p>@item.Awnser</p>
                 </div>
-                <button class="accordion">Pergunta 2</button>
+                <!-- <button class="accordion">Pergunta 2</button>
                 <div class="panel">
                     <p>Lorem ipsum...</p>
                 </div>
@@ -108,7 +110,8 @@
                 <button class="accordion">Pergunta 4</button>
                 <div class="panel">
                     <p>Lorem ipsum...</p>
-                </div>
+                </div> -->
+                }
             </div>
         </div>
     </div>

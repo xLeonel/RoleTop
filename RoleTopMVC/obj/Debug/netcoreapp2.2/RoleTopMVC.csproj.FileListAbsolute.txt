@@ -111,4 +111,6 @@ C:\Users\vitor\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Vie
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Servicos\Corporativo.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Servicos\Debutante.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Servicos\Outros.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\Configuracoes.g.cshtml.cs
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\MudarSenha.g.cshtml.cs
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Login\RecuperarSenha.g.cshtml.cs

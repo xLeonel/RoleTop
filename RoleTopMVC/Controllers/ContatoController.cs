@@ -13,6 +13,7 @@ namespace RoleTopMVC.Controllers
         EventoRepository eventoRepository = new EventoRepository();
         TipoEventoRepository tipoEventoRepository = new TipoEventoRepository();
         OrcamentoRepository orcamentoRepository = new OrcamentoRepository();
+        PerguntaFaqRepository perguntaFaqRepository = new PerguntaFaqRepository();
         public IActionResult Index()
         {
            return View(new EventoViewModel()
@@ -20,7 +21,8 @@ namespace RoleTopMVC.Controllers
                 NomeView = "Contato",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession(),
-                Eventos = tipoEventoRepository.ObterTodos()
+                Eventos = tipoEventoRepository.ObterTodos(),
+                Perguntas = perguntaFaqRepository.ObterTodos()
             });
         }
 
