@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -21,6 +23,7 @@ namespace RoleTopMVC.Controllers
         [HttpGet] //*PEGAR DADOS*/
         public IActionResult Index()
         {
+            
             return View(new BaseViewModel()
             {
                 NomeView = "Login",
@@ -87,11 +90,16 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult Dashboard()
         {
+            var user = clienteRepository.ObterPor(ObterUsuarioSession());
+            var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
+
             return View(new RespostaViewModel()
             {
                 NomeView = "Dashboard",
                 UsuarioEmail = ObterUsuarioSession(),
-                UsuarioNome = ObterUsuarioNomeSession()
+                UsuarioNome = ObterUsuarioNomeSession(),
+                FotoPerfil = urlRelativa
             });
         }
 
@@ -262,11 +270,16 @@ namespace RoleTopMVC.Controllers
 
         public IActionResult Configuracoes()
         {
+            var user = clienteRepository.ObterPor(ObterUsuarioSession());
+            var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
+            
             return View(new EventoViewModel()
             {
                 NomeView = "Configuracoes",
                 UsuarioEmail = ObterUsuarioSession(),
-                UsuarioNome = ObterUsuarioNomeSession()
+                UsuarioNome = ObterUsuarioNomeSession(),
+                FotoPerfil = urlRelativa
             });
         }
 
@@ -318,8 +331,32 @@ namespace RoleTopMVC.Controllers
                     });
                 }
             }
+        }
+
+        public IActionResult MudarFoto(IFormCollection form)
+        {
+            var cliente = clienteRepository.ObterPor(ObterUsuarioSession());
+
+            var urlFoto = $"wwwroot\\{PATH_FOTOS}\\{cliente.Nome}\\perfil\\";
+            GravarFoto(form.Files, urlFoto);
+
+            var atualizar = clienteRepository.AtualizarFoto(cliente.Email,urlFoto);
+
+            BaseViewModel basea= new BaseViewModel();
+            basea.FotoPerfil = cliente.URLFotoPerfil;
 
 
+            return RedirectToAction("Configuracoes", "Login");
+        }
+
+        public async void GravarFoto(IFormFileCollection arquivos, string urlFoto) { 
+            foreach (var foto in arquivos)
+            {   
+                System.IO.Directory.CreateDirectory(urlFoto).Create();
+                var file = System.IO.File.Create(urlFoto + foto.FileName);
+                await foto.CopyToAsync(file);
+                file.Close();
+            }
         }
 
         public IActionResult Logoff()

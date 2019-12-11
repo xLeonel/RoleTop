@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
@@ -35,15 +36,27 @@ namespace RoleTopMVC.Controllers
                     DateTime.Parse(form["data-nascimento"]));
 
                 cliente.TipoUsuario = (uint)TipoUsuario.CLIENTE;
-                clienteRepository.Inserir(cliente);
 
+                cliente.URLFotoPerfil =  $"wwwroot\\{PATH_FOTOS}\\fotopadrao\\";
                 
-                return View("Sucesso", new RespostaViewModel()
+                if (clienteRepository.Inserir(cliente))
                 {
-                    NomeView = "Cadastro",
-                    UsuarioEmail = ObterUsuarioSession(),
-                    UsuarioNome = ObterUsuarioNomeSession(),
-                });
+                    return View("Sucesso", new RespostaViewModel()
+                    {
+                        NomeView = "Cadastro",
+                        UsuarioEmail = ObterUsuarioSession(),
+                        UsuarioNome = ObterUsuarioNomeSession()
+                    });
+                }
+                else
+                {
+                    return View("Erro", new RespostaViewModel()
+                    {
+                        NomeView = "Cadastro",
+                        UsuarioEmail = ObterUsuarioSession(),
+                        UsuarioNome = ObterUsuarioNomeSession()
+                    });
+                }
             }
             catch (Exception e)
             {

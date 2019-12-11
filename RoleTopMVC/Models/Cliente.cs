@@ -11,6 +11,7 @@ namespace RoleTopMVC.Models
         public uint Cpf {get;set;}
         public DateTime DataNascimento {get;set;}
         public uint TipoUsuario {get;set;}
+        public string URLFotoPerfil {get;set;}
 
         public Cliente()
         {

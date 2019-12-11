@@ -39,6 +39,7 @@ namespace RoleTopMVC.Repositories
                     cliente.Celular = ExtrairValorDoCampo("celular", item);
                     cliente.Cpf = uint.Parse(ExtrairValorDoCampo("cpf", item));
                     cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
+                    cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
 
                     return cliente;
                 }
@@ -72,17 +73,41 @@ namespace RoleTopMVC.Repositories
             }
 
              return resultado;
-
-            
-
             // eventoTotais[linhaPedido] = eventoCSV;
             // File.WriteAllLines(PATH, eventoTotais);
+        }
 
+         public bool AtualizarFoto(string email, string urlFoto)
+        {
+            var cliente = ObterPor(email);
+            cliente.URLFotoPerfil = urlFoto;
+            var clienteCSV = PrepararRegistroCSV(cliente);
+            var linhas = File.ReadAllLines(PATH);
+            var linhaUsuario = -1;
+            var resultado = false;
+
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                if (cliente.Email == ExtrairValorDoCampo("email", linhas[i]))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                    break;
+                }
+            }
+
+            if (resultado)
+            {
+                linhas[linhaUsuario] = clienteCSV;
+                File.WriteAllLines(PATH, linhas);
+            }
+
+             return resultado;
         }
 
         private string PrepararRegistroCSV(Cliente cliente)
         {
-            return $"tipo_usuario={cliente.TipoUsuario};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento}";
+            return $"tipo_usuario={cliente.TipoUsuario};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento.ToShortDateString()};url_foto={cliente.URLFotoPerfil}";
         }
     }
 }

@@ -2,7 +2,7 @@
     <div id="geral">
         <h1>Cadastro</h1>
 
-        <form method="POST" action='@Url.Action("CadastrarCliente", "Cadastro")'>
+        <form enctype="multipart/form-data" method="POST" action='@Url.Action("CadastrarCliente", "Cadastro")'>
             <div class="tabela">
                 <label>Nome</label>
                 <input type="text" placeholder="Nome Completo" name="nome" required>

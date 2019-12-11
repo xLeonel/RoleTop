@@ -3,15 +3,23 @@
 <main>
     <!-- <h1>@Model.UsuarioEmail logado</h1> -->
     <div id="dashboard">
-        <img id="blah" src="~/img/foto_user.jpg" alt="your image"/>
+        <img  src="@Model.FotoPerfil" alt="your image"/>
         <a asp-controller="Login" asp-action="Dashboard"><h4>Olá <em>@Model.PrimeiroNome()</em></h4></a>
         <!-- <input type='file' onchange="readURL(this);" /> -->
         <div id="opcaoUser">
             <a asp-controller="Login" asp-action="">Atualizar Informação</a>
             <a asp-controller="Login" asp-action="MudarSenha">Mudar Senha</a>
-            <a asp-controller="Login" asp-action="">Mudar Foto</a>
+            <!-- <a asp-controller="Login" asp-action="">Mudar Foto</a> -->
+            <a href="#foto" rel="modal:open">Mudar Foto</a>
             <a asp-controller="Login" asp-action="Dashboard">Voltar</a>
         </div>
+         <div id="foto" class="modal">
+            <form enctype="multipart/form-data" method="POST" action='@Url.Action("MudarFoto","Login")'>
+                <input type="file" name="foto-perfil" accept="image/*"/>
+                <input type="submit" rel="modal:close" value="Enviar" class="butao">
+                <!-- <a asp-controller="Login" asp-action="MudarFoto" rel="modal:close" style="float:right">Enviar</a>    -->
+            </form>
+         </div>
     </div>
 </main>
 

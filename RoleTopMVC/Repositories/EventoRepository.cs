@@ -30,7 +30,7 @@ namespace RoleTopMVC.Repositories
 
         private string PrepararRegistroCSV(Evento evento)
         {
-            return $"id={evento.Id};evento_nome={evento.NomeEvento};cliente_nome={evento.Cliente.Nome};cliente_email={evento.Cliente.Email};cliente_celular={evento.Cliente.Celular};dia_evento={evento.DiaEvento};tipo_evento={evento.TipoEvento};quantidade_pessoas={evento.NumeroPessoas};status_evento={evento.Status};pacote_evento={evento.PacoteEvento}";
+            return $"id={evento.Id};evento_nome={evento.NomeEvento};cliente_nome={evento.Cliente.Nome};cliente_email={evento.Cliente.Email};cliente_celular={evento.Cliente.Celular};dia_evento={evento.DiaEvento.ToShortDateString()};tipo_evento={evento.TipoEvento};quantidade_pessoas={evento.NumeroPessoas};status_evento={evento.Status};pacote_evento={evento.PacoteEvento}";
         }
 
         public List<Evento> ObterTodos()

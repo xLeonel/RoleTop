@@ -3,7 +3,9 @@
 <main>
     <!-- <h1>@Model.UsuarioEmail logado</h1> -->
     <div id="dashboard">
-        <img id="blah" src="~/img/foto_user.jpg" alt="your image" />
+        <div id="foto-perfil-container">
+            <img id="foto-perfil" src="@Model.FotoPerfil" alt="foto_perfil" />
+        </div>
         <h4>Olá <em>@Model.PrimeiroNome()</em></h4>
         <!-- <input type='file' onchange="readURL(this);" /> -->
         <div id="opcaoUser">
