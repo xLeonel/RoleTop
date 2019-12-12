@@ -1,0 +1,70 @@
+main {
+  background-color: rgb(13, 13, 13);
+}
+
+/* #footer-section-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} */
+
+#titulo h1 {
+  overflow: hidden;
+  text-align: center;
+  padding: 35px 0 15px 0;
+  background-color: rgb(13, 13, 13); 
+  color: #ffffff;  
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#titulo h1:before,
+#titulo h1:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #ffffff, transparent);
+}
+
+#titulo h1:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+#titulo h1:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.servicos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+}
+
+.servicos i, h3, p , a {
+  padding: 5px;
+}
+
+.servicos p {
+  text-align: center;
+}
+
+.servicos a {
+  text-decoration: none;
+  color: white;
+}
+
+.servicos a:hover {
+  cursor: pointer;
+  color: rgb(242, 159, 5);
+}
+
+.servicos i {
+  color: rgb(242, 135, 5);
+}

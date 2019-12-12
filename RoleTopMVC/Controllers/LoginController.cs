@@ -146,14 +146,8 @@ namespace RoleTopMVC.Controllers
         public IActionResult RegistrarEvento(IFormCollection form)
         {
             Evento evento = new Evento();
-
-            Cliente cliente = new Cliente()
-            {
-                Nome = form["nome"],
-                Email = form["email"],
-                Celular = form["celular"]
-            };
-
+            var cliente = clienteRepository.ObterPor(ObterUsuarioSession());
+            
             evento.Cliente = cliente;
             evento.DiaEvento = DateTime.Parse(form["diaEvento"]);
             evento.TipoEvento = form["tipoEvento"];
@@ -161,14 +155,17 @@ namespace RoleTopMVC.Controllers
             evento.NomeEvento = form["nomeEvento"];
             evento.PacoteEvento = form["pacoteEvento"];
 
+            evento.URLFotoPerfil =  $"wwwroot\\{PATH_FOTOSEVENTOS}\\fotopadrao\\";
+            
             if (eventoRepository.Inserir(evento))
             {
-                return View("Sucesso", new RespostaViewModel()
-                {
-                    NomeView = "SolicitarEventos",
-                    UsuarioEmail = ObterUsuarioSession(),
-                    UsuarioNome = ObterUsuarioNomeSession()
-                });
+                return RedirectToAction("MeusEventos", "Login");
+                // return View("Sucesso", new RespostaViewModel()
+                // {
+                //     NomeView = "SolicitarEventos",
+                //     UsuarioEmail = ObterUsuarioSession(),
+                //     UsuarioNome = ObterUsuarioNomeSession()
+                // });
             }
             else
             {

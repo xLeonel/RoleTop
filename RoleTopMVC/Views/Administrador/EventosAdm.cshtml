@@ -5,7 +5,7 @@
         <div id="opcaoUser">
             <a asp-controller="Administrador" asp-action="Eventos">Eventos</a>
             <a asp-controller="" asp-action="">BlackList</a>
-            <a asp-controller="" asp-action="">Configurações</a>
+            <a asp-controller="Login" asp-action="Configuracoes">Configurações</a>
             <a asp-controller="Login" asp-action="Logoff">Sair</a>
         </div>
         <div id="content">
@@ -70,6 +70,7 @@
                                     <p>Tipo Evento: @evento.TipoEvento</p>
                                     <p>Pacotes Selecionado: @evento.PacoteEvento</p>
                                     <p>Quantidade Convidados: @evento.NumeroPessoas</p>
+                                    <p>Privacidade Evento: @Model.PrivacidadeEvento[@evento.Privacidade]</p>
                                     <p>Cliente_Nome: @evento.Cliente.Nome</p>
                                     <p>Email_Cliente: @evento.Cliente.Email</p>
                                     <p>Cliente_CPF: @evento.Cliente.Cpf</p>
@@ -133,6 +134,7 @@
                                     <p>Tipo Evento: @evento.TipoEvento</p>
                                     <p>Pacotes Selecionado: @evento.PacoteEvento</p>
                                     <p>Quantidade Convidados: @evento.NumeroPessoas</p>
+                                    <p>Privacidade Evento: @Model.PrivacidadeEvento[@evento.Privacidade]</p>
                                     <p>Cliente_Nome: @evento.Cliente.Nome</p>
                                     <p>Email_Cliente: @evento.Cliente.Email</p>
                                     <p>Cliente_CPF: @evento.Cliente.Cpf</p>
@@ -191,6 +193,7 @@
                                     <p>Tipo Evento: @evento.TipoEvento</p>
                                     <p>Pacotes Selecionado: @evento.PacoteEvento</p>
                                     <p>Quantidade Convidados: @evento.NumeroPessoas</p>
+                                    <p>Privacidade Evento: @Model.PrivacidadeEvento[@evento.Privacidade]</p>
                                     <p>Cliente_Nome: @evento.Cliente.Nome</p>
                                     <p>Email_Cliente: @evento.Cliente.Email</p>
                                     <p>Cliente_CPF: @evento.Cliente.Cpf</p>

@@ -37,7 +37,7 @@ namespace RoleTopMVC.Repositories
                     cliente.Senha = ExtrairValorDoCampo("senha", item);
                     cliente.Email = ExtrairValorDoCampo("email", item);
                     cliente.Celular = ExtrairValorDoCampo("celular", item);
-                    cliente.Cpf = uint.Parse(ExtrairValorDoCampo("cpf", item));
+                    cliente.Cpf = ExtrairValorDoCampo("cpf", item);
                     cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
                     cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
 

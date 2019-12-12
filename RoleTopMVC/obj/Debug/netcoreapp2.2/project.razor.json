@@ -3066,6 +3066,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Eventos\\Index.cshtml",
+      "TargetPath": "Views\\Eventos\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\48171009824\\Documents\\RoleTopMVC\\RoleTopMVC\\Views\\Login\\SolicitarEventos.cshtml",
       "TargetPath": "Views\\Login\\SolicitarEventos.cshtml",
       "FileKind": "mvc"

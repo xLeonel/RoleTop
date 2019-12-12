@@ -1,0 +1,16 @@
+@model RoleTopMVC.ViewModels.EventoViewModel
+
+<main>
+    <section id="titulo">
+        <h1>Eventos</h1>
+    </section>
+        <div class="servicos">
+        @foreach (var item in @Model.Eventos)
+        {
+            <img src="@item.URLFotoPerfil" class="imagestratadas" alt="Evento @item.NomeEvento" title="@item.NomeEvento">
+            <h3>@item.NomeEvento</h3>
+            <!-- <p>Conte com nossa experiência de 35 anos<br>para o dia mais especial da sua vida.</p>  DESCRIÇAO-->
+            <a asp-controller="" asp-action=""><em>Clique aqui</em></a>
+        }
+        </div>
+</main>

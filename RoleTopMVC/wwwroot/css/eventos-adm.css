@@ -111,6 +111,22 @@ th {
     align-items: center;
 }
 
+.butao {
+    width: 11em ;
+    height: 3em;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    color: black;
+    background-color: rgb(255, 160, 0, 0.9); 
+    float: right;
+}
+
+.butao:hover {
+    background-color: rgb(255, 160, 0);
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+}
+
 
 @media screen and (max-width: 850px)
   {

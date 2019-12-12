@@ -12,6 +12,7 @@ namespace RoleTopMVC.ViewModels
         public string UsuarioEmail { get; set; }
         public string Celular {get;set;}
         public string FotoPerfil {get;set;}
+        
         public string PrimeiroNome()
         {
             var nomeCompleto = this.UsuarioNome.ToLower();

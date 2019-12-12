@@ -8,7 +8,7 @@ namespace RoleTopMVC.Models
         public string Senha {get;set;}
         public string Email {get;set;}
         public string Celular {get;set;}
-        public uint Cpf {get;set;}
+        public string Cpf {get;set;}
         public DateTime DataNascimento {get;set;}
         public uint TipoUsuario {get;set;}
         public string URLFotoPerfil {get;set;}
@@ -18,7 +18,7 @@ namespace RoleTopMVC.Models
 
         }
 
-        public Cliente(string Nome, string Senha, string Email, string Celular, uint Cpf, DateTime DataNascimento)
+        public Cliente(string Nome, string Senha, string Email, string Celular, string Cpf, DateTime DataNascimento)
         {
             this.Nome = Nome;
             this.Senha = Senha;

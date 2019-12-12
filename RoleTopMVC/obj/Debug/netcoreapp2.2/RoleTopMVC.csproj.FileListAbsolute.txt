@@ -161,3 +161,4 @@ C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\RoleTopMVC\obj\Debug\netcor
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTopMVC.dll
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTopMVC.pdb
 C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\RoleTopMVC.csproj.CopyComplete
+C:\Users\48171009824\Documents\RoleTopMVC\RoleTopMVC\obj\Debug\netcoreapp2.2\Razor\Views\Eventos\Index.g.cshtml.cs

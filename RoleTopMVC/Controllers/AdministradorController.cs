@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RoleTopMVC.Enums;
 using RoleTopMVC.Models;
@@ -11,13 +13,19 @@ namespace RoleTopMVC.Controllers
     public class AdministradorController : AbstractController
     {
         EventoRepository eventoRepository = new EventoRepository();
+        ClienteRepository clienteRepository = new ClienteRepository();
         public IActionResult Dashboard()
-        {
-            return View(new BaseViewModel()
+        {   
+            var user = clienteRepository.ObterPor(ObterUsuarioSession());
+            var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
+            
+            return View(new EventoViewModel()
             {
                 NomeView = "Dashboard",
                 UsuarioEmail = ObterUsuarioSession(),
-                UsuarioNome = ObterUsuarioNomeSession()
+                UsuarioNome = ObterUsuarioNomeSession(),
+                FotoPerfil = urlRelativa
             });
         }
 
@@ -27,6 +35,7 @@ namespace RoleTopMVC.Controllers
             var eventosAprovado = eventoRepository.ObterEventoPor(1);
             var eventosReprovado = eventoRepository.ObterEventoPor(2);
             var nomeEnum = Enum.GetNames(typeof(StatusEvento));
+            var privacidadeEvento = Enum.GetNames(typeof(PrivacidadeEvento));
 
             return View(new EventoViewModel()
             {
@@ -36,7 +45,8 @@ namespace RoleTopMVC.Controllers
                 Eventos = eventosPendente,
                 EventosAprovado = eventosAprovado,
                 EventosReprovado = eventosReprovado,
-                StatusEnum = nomeEnum
+                StatusEnum = nomeEnum,
+                PrivacidadeEvento = privacidadeEvento
             });
         }
 

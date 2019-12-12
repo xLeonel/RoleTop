@@ -32,7 +32,7 @@ namespace RoleTopMVC.Controllers
                     form["senha"],
                     form["email"],
                     form["celular"],
-                    uint.Parse(form["cpf"]),
+                    (form["cpf"]),
                     DateTime.Parse(form["data-nascimento"]));
 
                 cliente.TipoUsuario = (uint)TipoUsuario.CLIENTE;
@@ -41,12 +41,13 @@ namespace RoleTopMVC.Controllers
                 
                 if (clienteRepository.Inserir(cliente))
                 {
-                    return View("Sucesso", new RespostaViewModel()
-                    {
-                        NomeView = "Cadastro",
-                        UsuarioEmail = ObterUsuarioSession(),
-                        UsuarioNome = ObterUsuarioNomeSession()
-                    });
+                    return RedirectToAction("Index", "Login");
+                    // return View("Sucesso", new RespostaViewModel()
+                    // {
+                    //     NomeView = "Cadastro",
+                    //     UsuarioEmail = ObterUsuarioSession(),
+                    //     UsuarioNome = ObterUsuarioNomeSession()
+                    // });
                 }
                 else
                 {

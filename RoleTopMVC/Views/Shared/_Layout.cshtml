@@ -24,6 +24,10 @@
     { 
         <link href="~/css/sobrenos.css" rel="stylesheet" type="text/css">
     }
+    @if("Eventos".Equals(@Model.NomeView))
+    { 
+        <link href="~/css/eventos.css" rel="stylesheet" type="text/css">
+    }
     @if("Contato".Equals(@Model.NomeView))
     { 
         <link href="~/css/contato.css" rel="stylesheet" type="text/css">
@@ -64,6 +68,9 @@
       <!-- <link href="~/css/dashboard.css" rel="stylesheet" type="text/css">
       <link href="~/css/restdashboard.css" rel="stylesheet" type="text/css"> -->
       <link href="~/css/eventos-adm.css" rel="stylesheet" type="text/css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     }
     @if("SolicitarEventos".Equals(@Model.NomeView))
     {
@@ -93,7 +100,7 @@
                     <a asp-controller="Home" asp-action="Index" id="test">Home</a>
                     <a asp-controller="SobreNos" asp-action="Index">Sobre Nós</a>
                     <a asp-controller="Servicos" asp-action="Index">Serviços</a>
-                    <!-- <a asp-controller="Faq" asp-action="Index">Evento</a> -->
+                    <a asp-controller="Eventos" asp-action="Index">Eventos</a>
                     <!-- <a asp-controller="Faq" asp-action="Index">Faq</a> -->
                     <a asp-controller="Contato" asp-action="Index">Contato</a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">

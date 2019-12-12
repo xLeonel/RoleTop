@@ -33,12 +33,35 @@
                                     <td>@evento.NomeEvento</td>
                                     <td>@evento.DiaEvento.ToShortDateString()</td>
                                     <td>@Model.StatusEnum[@evento.Status]</td>
-                                    <td></td>
+                                    @if(@evento.Status == 1)
+                                    {
+                                        <td><a href="#@evento.Id" rel="modal:open" style="text-decoration:none;color:white;font-weight:bolder"><em>Divulgar</em></a></td>
+                                    }
                                     <td></td>
                                 </tr>
                                 }
                         </tbody>
                 </table>
+                @foreach (var evento in Model.Eventos)
+                {
+                    <div id="@evento.Id" class="modal">
+                        <p>Nome Evento: @evento.NomeEvento</p>
+                        <p>Insira uma foto: </p>
+                        <form enctype="multipart/form-data" method="POST" action='@Url.Action("AtulizarFotoEvento","Eventos")'>
+                            <input type="file" name="foto-perfil" required accept="image/*"/>
+                            <input type="hidden" name="id" value="@evento.Id">
+                            <p>Após Confirmar a <b>divulgação</b> do seu evento, a privacidade tornará-se <b>público</b>.</p>
+                            <input type="submit" rel="modal:close" value="Confirmar Divulgação" class="butao">
+                        </form>
+                        <a href="#" rel="modal:close" style="float:right"></a>
+                    </div>
+                }
+                @if(@Model.Eventos.Count == 0)
+                {
+                    <section id="titulo">
+                    <h4>Nenhum Evento</h4>
+                    </section>
+                } 
         </div>
     </div>
 </main>

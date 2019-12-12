@@ -3,7 +3,10 @@
 <main>
     <!-- <h1>@Model.UsuarioEmail logado</h1> -->
     <div id="dashboard">
-        <img  src="@Model.FotoPerfil" alt="your image"/>
+        <div id="foto-perfil-container">
+            <img id="foto-perfil" src="@Model.FotoPerfil" alt="foto_perfil" />
+        </div>
+        <!-- <img  src="@Model.FotoPerfil" alt="your image"/> -->
         <a asp-controller="Login" asp-action="Dashboard"><h4>Olá <em>@Model.PrimeiroNome()</em></h4></a>
         <!-- <input type='file' onchange="readURL(this);" /> -->
         <div id="opcaoUser">

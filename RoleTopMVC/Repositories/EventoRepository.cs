@@ -30,7 +30,7 @@ namespace RoleTopMVC.Repositories
 
         private string PrepararRegistroCSV(Evento evento)
         {
-            return $"id={evento.Id};evento_nome={evento.NomeEvento};cliente_nome={evento.Cliente.Nome};cliente_email={evento.Cliente.Email};cliente_celular={evento.Cliente.Celular};dia_evento={evento.DiaEvento.ToShortDateString()};tipo_evento={evento.TipoEvento};quantidade_pessoas={evento.NumeroPessoas};status_evento={evento.Status};pacote_evento={evento.PacoteEvento}";
+            return $"id={evento.Id};evento_nome={evento.NomeEvento};cliente_nome={evento.Cliente.Nome};cliente_email={evento.Cliente.Email};cliente_cpf={evento.Cliente.Cpf};cliente_celular={evento.Cliente.Celular};dia_evento={evento.DiaEvento.ToShortDateString()};tipo_evento={evento.TipoEvento};quantidade_pessoas={evento.NumeroPessoas};status_evento={evento.Status};pacote_evento={evento.PacoteEvento};privacidade_evento={evento.Privacidade};url_foto={evento.URLFotoPerfil}";
         }
 
         public List<Evento> ObterTodos()
@@ -46,12 +46,15 @@ namespace RoleTopMVC.Repositories
                 evento.NomeEvento = ExtrairValorDoCampo("evento_nome", linha);
                 evento.Cliente.Nome = ExtrairValorDoCampo("cliente_nome", linha);
                 evento.Cliente.Email = ExtrairValorDoCampo("cliente_email", linha);
+                evento.Cliente.Cpf = ExtrairValorDoCampo("cliente_cpf", linha);
                 evento.Cliente.Celular = ExtrairValorDoCampo("cliente_celular", linha);
                 evento.DiaEvento = DateTime.Parse(ExtrairValorDoCampo("dia_evento", linha));
                 evento.TipoEvento = ExtrairValorDoCampo("tipo_evento", linha);
                 evento.NumeroPessoas = uint.Parse(ExtrairValorDoCampo("quantidade_pessoas", linha));
                 evento.Status = uint.Parse(ExtrairValorDoCampo("status_evento", linha));
                 evento.PacoteEvento = ExtrairValorDoCampo("pacote_evento", linha);
+                evento.Privacidade = uint.Parse(ExtrairValorDoCampo("privacidade_evento", linha));
+                evento.URLFotoPerfil = ExtrairValorDoCampo("url_foto", linha);
                 eventos.Add(evento);
             }
             return eventos;
@@ -101,6 +104,21 @@ namespace RoleTopMVC.Repositories
             return eventos;
         }
 
+        public List<Evento> ObterPrivacidade(uint Privacidade)
+        {
+            List<Evento> eventos = new List<Evento>();
+            var todosEvento = ObterTodos();
+
+            foreach (var item in todosEvento)
+            {
+                if (item.Privacidade.Equals(Privacidade))
+                {
+                    eventos.Add(item);
+                }
+            }
+            return eventos;
+        }
+
         public bool Atualizar(Evento evento)
         {
             var eventoTotais = File.ReadAllLines(PATH);
@@ -126,6 +144,34 @@ namespace RoleTopMVC.Repositories
             }
 
             return resultado;
+        }
+
+        public bool AtualizarFoto(ulong id, string urlFoto)
+        {
+            var evento = ObterPor(id);
+            evento.URLFotoPerfil = urlFoto;
+            var eventoCSV = PrepararRegistroCSV(evento);
+            var linhas = File.ReadAllLines(PATH);
+            var linhaUsuario = -1;
+            var resultado = false;
+
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                if (evento.Id == ulong.Parse(ExtrairValorDoCampo("id", linhas[i])))
+                {
+                    linhaUsuario = i;
+                    resultado = true;
+                    break;
+                }
+            }
+
+            if (resultado)
+            {
+                linhas[linhaUsuario] = eventoCSV;
+                File.WriteAllLines(PATH, linhas);
+            }
+
+             return resultado;
         }
         
     }
