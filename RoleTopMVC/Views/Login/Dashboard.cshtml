@@ -11,9 +11,18 @@
         <div id="opcaoUser">
             <a asp-controller="Login" asp-action="MeusEventos">Meus Eventos</a>
             <a asp-controller="Login" asp-action="SolicitarEventos">Solicitar Eventos</a>
+            <a href="#depoimento" rel="modal:open">Deixar Depoimento</a>
             <a asp-controller="Login" asp-action="Configuracoes">Configurações</a>
             <a asp-controller="Login" asp-action="Logoff">Sair</a>
         </div>
+        <div id="depoimento" class="modal">
+            <form enctype="multipart/form-data" method="POST" action='@Url.Action("Depoimento","Login")'>
+                <div id="depor">
+                    <textarea name="texto"></textarea>
+                    <input type="submit" rel="modal:close" value="Enviar" class="butao">
+                </div>
+            </form>
+         </div>
     </div>
 </main>
 

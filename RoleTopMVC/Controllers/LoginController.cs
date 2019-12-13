@@ -352,8 +352,14 @@ namespace RoleTopMVC.Controllers
                 System.IO.Directory.CreateDirectory(urlFoto).Create();
                 var file = System.IO.File.Create(urlFoto + foto.FileName);
                 await foto.CopyToAsync(file);
-                file.Close();
+                file.Close(); 
             }
+        }
+
+        public IActionResult Depoimento(IFormCollection form)
+        { 
+            // TODO SISTEMA DE DEPOIMENTO
+            return RedirectToAction("Dashboard", "Login");
         }
 
         public IActionResult Logoff()

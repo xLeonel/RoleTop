@@ -6,11 +6,20 @@
     </section>
         <div class="servicos">
         @foreach (var item in @Model.Eventos)
-        {
-            <img src="@item.URLFotoPerfil" class="imagestratadas" alt="Evento @item.NomeEvento" title="@item.NomeEvento">
-            <h3>@item.NomeEvento</h3>
-            <!-- <p>Conte com nossa experiência de 35 anos<br>para o dia mais especial da sua vida.</p>  DESCRIÇAO-->
-            <a asp-controller="" asp-action=""><em>Clique aqui</em></a>
+        {   <div id="fotoseventos">
+                <div id="pai">
+                <a><img src="@item.URLFotoPerfil" class="imagestratadas" alt="Evento @item.NomeEvento" title="Evento @item.NomeEvento"></a>
+                <h3>@item.NomeEvento</h3>
+                </div>
+                <!-- <p>Conte com nossa experiência de 35 anos<br>para o dia mais especial da sua vida.</p>  DESCRIÇAO-->
+                <a asp-controller="" asp-action=""><em>Saiba Mais</em></a>
+            </div>   
         }
+        @if(@Model.Eventos.Count == 0)
+                {
+                    <section id="titulo">
+                    <h4>Nenhum Evento</h4>
+                    </section>
+                } 
         </div>
 </main>

@@ -14,12 +14,21 @@
             <a asp-controller="Login" asp-action="MudarSenha">Mudar Senha</a>
             <!-- <a asp-controller="Login" asp-action="">Mudar Foto</a> -->
             <a href="#foto" rel="modal:open">Mudar Foto</a>
-            <a asp-controller="Login" asp-action="Dashboard">Voltar</a>
+            @if(@Model.UsuarioEmail.Equals("admin@admin.com"))
+            {
+                <a asp-controller="Administrador" asp-action="Dashboard">Voltar</a>
+            }
+            else
+            {
+                <a asp-controller="Login" asp-action="Dashboard">Voltar</a>
+            }
         </div>
          <div id="foto" class="modal">
             <form enctype="multipart/form-data" method="POST" action='@Url.Action("MudarFoto","Login")'>
-                <input type="file" name="foto-perfil" accept="image/*"/>
-                <input type="submit" rel="modal:close" value="Enviar" class="butao">
+                <div id="inpa">
+                    <input type="file" name="foto-perfil" accept="image/*"/>
+                    <input type="submit" rel="modal:close" value="Enviar" class="butao">
+                </div>
                 <!-- <a asp-controller="Login" asp-action="MudarFoto" rel="modal:close" style="float:right">Enviar</a>    -->
             </form>
          </div>
