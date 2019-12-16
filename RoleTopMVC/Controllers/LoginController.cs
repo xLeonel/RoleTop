@@ -19,11 +19,12 @@ namespace RoleTopMVC.Controllers
         private EventoRepository eventoRepository = new EventoRepository();
         private TipoEventoRepository tipoEventoRepository = new TipoEventoRepository();
         private TipoPacoteRepository tipoPacoteRepository = new TipoPacoteRepository();
+        private DepoimentoRepository depoimentoRepository = new DepoimentoRepository();
 
         [HttpGet] //*PEGAR DADOS*/
         public IActionResult Index()
         {
-            
+
             return View(new BaseViewModel()
             {
                 NomeView = "Login",
@@ -92,7 +93,7 @@ namespace RoleTopMVC.Controllers
         {
             var user = clienteRepository.ObterPor(ObterUsuarioSession());
             var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
-            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\", "/").Replace("wwwroot", "");
 
             return View(new RespostaViewModel()
             {
@@ -147,7 +148,7 @@ namespace RoleTopMVC.Controllers
         {
             Evento evento = new Evento();
             var cliente = clienteRepository.ObterPor(ObterUsuarioSession());
-            
+
             evento.Cliente = cliente;
             evento.DiaEvento = DateTime.Parse(form["diaEvento"]);
             evento.TipoEvento = form["tipoEvento"];
@@ -155,8 +156,8 @@ namespace RoleTopMVC.Controllers
             evento.NomeEvento = form["nomeEvento"];
             evento.PacoteEvento = form["pacoteEvento"];
 
-            evento.URLFotoPerfil =  $"wwwroot\\{PATH_FOTOSEVENTOS}\\fotopadrao\\";
-            
+            evento.URLFotoPerfil = $"wwwroot\\{PATH_FOTOSEVENTOS}\\fotopadrao\\";
+
             if (eventoRepository.Inserir(evento))
             {
                 return RedirectToAction("MeusEventos", "Login");
@@ -269,8 +270,8 @@ namespace RoleTopMVC.Controllers
         {
             var user = clienteRepository.ObterPor(ObterUsuarioSession());
             var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
-            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
-            
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\", "/").Replace("wwwroot", "");
+
             return View(new EventoViewModel()
             {
                 NomeView = "Configuracoes",
@@ -308,7 +309,7 @@ namespace RoleTopMVC.Controllers
             }
             else
             {
-                var atualizar = clienteRepository.AtualizarSenha(userEmail,senhaConfirm);
+                var atualizar = clienteRepository.AtualizarSenha(userEmail, senhaConfirm);
                 if (atualizar)
                 {
                     return View("Sucesso", new RespostaViewModel()
@@ -337,29 +338,43 @@ namespace RoleTopMVC.Controllers
             var urlFoto = $"wwwroot\\{PATH_FOTOS}\\{cliente.Nome}\\perfil\\";
             GravarFoto(form.Files, urlFoto);
 
-            var atualizar = clienteRepository.AtualizarFoto(cliente.Email,urlFoto);
+            var atualizar = clienteRepository.AtualizarFoto(cliente.Email, urlFoto);
 
-            BaseViewModel basea= new BaseViewModel();
+            BaseViewModel basea = new BaseViewModel();
             basea.FotoPerfil = cliente.URLFotoPerfil;
 
 
             return RedirectToAction("Configuracoes", "Login");
         }
 
-        public async void GravarFoto(IFormFileCollection arquivos, string urlFoto) { 
+        public async void GravarFoto(IFormFileCollection arquivos, string urlFoto)
+        {
             foreach (var foto in arquivos)
-            {   
+            {
                 System.IO.Directory.CreateDirectory(urlFoto).Create();
                 var file = System.IO.File.Create(urlFoto + foto.FileName);
                 await foto.CopyToAsync(file);
-                file.Close(); 
+                file.Close();
             }
         }
 
         public IActionResult Depoimento(IFormCollection form)
-        { 
-            // TODO SISTEMA DE DEPOIMENTO
-            return RedirectToAction("Dashboard", "Login");
+        {
+            Depoimento depoimento = new Depoimento();
+            depoimento.Cliente = clienteRepository.ObterPor(ObterUsuarioSession());
+            depoimento.Mensagem = form["texto"];
+
+            var inserir = depoimentoRepository.Inserir(depoimento);
+
+            if (inserir)
+            {
+                return RedirectToAction("Dashboard", "Login");
+            }
+            else
+            {
+                System.Console.WriteLine("NÃO ENVIOU O DEPOIMENTO");
+                return RedirectToAction("Dashboard", "Login");
+            }
         }
 
         public IActionResult Logoff()

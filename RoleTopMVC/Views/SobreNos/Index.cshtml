@@ -1,3 +1,5 @@
+@model RoleTopMVC.ViewModels.BaseViewModel
+
 <main>
     <section id="titulo-servicos">
         <h1>Sobre Nós</h1>
@@ -12,30 +14,47 @@
         <p>Trabalhamos nos melhores  espaços , em regiões importantes da cidade; Contamos também com o serviço de som e iluminação se solicitados por nossos clientes. Nosso trabalho conquistou famílias e grandes empresas, não só pela excelência, mas pelo envolvimento que temos com cada festa que realizamos.</p>
     </section>
 
-    
-    <div id="depocial">
-            <div id="depoimentos">
-            <h2>Depoimentos</h2>
-            <textarea id="textoDepoimento" placeholder="mensagem do usuario"></textarea>
-            <div id="fotoDepoimento">
-                <img src="~/img/foto-depoimentos.jpg" >
+    <div id="depoimentos" >
+        <h2 style="padding:10px 0 5px 0">Depoimentos</h2>
+        @foreach (var item in @Model.Depoimentos)
+        {  
+            <div id="foto-perfil-container" class="mySlides">
+                <img id="foto-perfil" src="@item.Cliente.URLFotoPerfil" alt="foto_perfil" />
+                <h3>@item.Cliente.Nome</h3>
+                <p style="padding:5px 0 15px 0">@item.Mensagem</p>
             </div>
-            </div>  
-        
-        <div id="conquest">
-            <h2>Conquistas</h2>
-            <div id="diferencial">
-                <div class="conquistas" style="padding: 0 20px 0 0">
-                    <i class="fas fa-trophy fa-3x"></i>
-                    <em><p>Melhor espaço SP</p></em> 
-                </div>
-                <div class="conquistas" style="padding: 0 0 0 20px">
-                    <i class="fas fa-clipboard-check fa-3x"></i>
-                   <em><p>+1 mil de eventos</p></em> 
-                </div>
-            </div> 
-        </div>
+        }
+    </div>  
+            
+    <div id="conquest">
+        <h2 style="padding:10px 0 5px 0" >Conquistas</h2>
+        <div id="diferencial">
+            <div class="conquistas" style="padding: 0 20px 0 0">
+                <i class="fas fa-trophy fa-3x"></i>
+                <em><p style="color:black">Melhor espaço SP</p></em> 
+            </div>
+            <div class="conquistas" style="padding: 0 0 0 20px">
+                <i class="fas fa-clipboard-check fa-3x"></i>
+                <em><p style="color:black">+1 mil de eventos</p></em> 
+            </div>
+        </div> 
     </div>
 
-
 </main>
+
+<script>
+    var slideIndex = 1;
+    showSlides();
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5500); // Change image every 2 seconds
+}
+</script>

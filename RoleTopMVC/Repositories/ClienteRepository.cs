@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using RoleTopMVC.Enums;
 using RoleTopMVC.Models;
 
 namespace RoleTopMVC.Repositories
@@ -40,11 +42,37 @@ namespace RoleTopMVC.Repositories
                     cliente.Cpf = ExtrairValorDoCampo("cpf", item);
                     cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
                     cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
+                    cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
 
                     return cliente;
                 }
             }
             return null;
+        }
+
+        public List<Cliente> ObterTodos()
+        {
+            var linhas = File.ReadAllLines(PATH);
+            List<Cliente> clientes = new List<Cliente>();
+            foreach (var item in linhas)
+            {
+                if (ExtrairValorDoCampo("tipo_usuario", item).Equals("0"))
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_usuario", item));
+                    cliente.Nome = ExtrairValorDoCampo("nome", item);
+                    cliente.Senha = ExtrairValorDoCampo("senha", item);
+                    cliente.Email = ExtrairValorDoCampo("email", item);
+                    cliente.Celular = ExtrairValorDoCampo("celular", item);
+                    cliente.Cpf = ExtrairValorDoCampo("cpf", item);
+                    cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
+                    cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
+                    cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
+
+                    clientes.Add(cliente);
+                }
+            }
+            return clientes;
         }
 
         public bool AtualizarSenha(string email, string senhaNova)
@@ -72,12 +100,12 @@ namespace RoleTopMVC.Repositories
                 File.WriteAllLines(PATH, linhas);
             }
 
-             return resultado;
+            return resultado;
             // eventoTotais[linhaPedido] = eventoCSV;
             // File.WriteAllLines(PATH, eventoTotais);
         }
 
-         public bool AtualizarFoto(string email, string urlFoto)
+        public bool AtualizarFoto(string email, string urlFoto)
         {
             var cliente = ObterPor(email);
             cliente.URLFotoPerfil = urlFoto;
@@ -102,12 +130,12 @@ namespace RoleTopMVC.Repositories
                 File.WriteAllLines(PATH, linhas);
             }
 
-             return resultado;
+            return resultado;
         }
 
         private string PrepararRegistroCSV(Cliente cliente)
         {
-            return $"tipo_usuario={cliente.TipoUsuario};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento.ToShortDateString()};url_foto={cliente.URLFotoPerfil}";
+            return $"tipo_usuario={cliente.TipoUsuario};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento.ToShortDateString()};url_foto={cliente.URLFotoPerfil};status_cliente={cliente.StatusCliente}";
         }
     }
 }

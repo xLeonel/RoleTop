@@ -1,0 +1,68 @@
+@model RoleTopMVC.ViewModels.EventoViewModel
+
+<main>
+    <div id="dashboard">
+        <div id="opcaoUser">
+            <a asp-controller="Administrador" asp-action="EventosAdm">Eventos</a>
+            <a asp-controller="Administrador" asp-action="Blacklist">BlackList</a>
+            <a asp-controller="Login" asp-action="Configuracoes">Configurações</a>
+            <a asp-controller="Login" asp-action="Logoff">Sair</a>
+        </div>
+        <div id="content">
+            <section id="titulo">
+                <h2>BlackList</h2>
+            </section>
+            
+            <div id="container-dashboard">
+                <div id="osbutao">
+                    <div id="tab1" class="ta"><button class="butoes" id="aprovado" style="font-weight: bolder">Banidos</button></div>
+                    <div id="tab2" class="ta"><button class="butoes" id="pendente" style="font-weight: bolder">Limpos</button></div>
+                    <div id="tab3" class="ta"><button class="butoes" id="recusado" style="font-weight: bolder">Suspensos</button></div>
+                </div>
+
+                        <!-- PENDENTES -->
+                        <div id="tab2show" class="tab">
+                            <table id="pendente">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Nome</th>
+                                        <th rowspan="2">Status</th>
+                                        <th colspan="2" rowspan="2">Banir</th>
+                                        <th colspan="2" rowspan="2">Suspender</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>Clientes atualizados em @DateTime.Now</p>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var cliente in Model.Clientes)
+                                        {
+                                        <tr>
+                                            <td>@cliente.Nome</td>
+                                            <td>@Model.StatusClienteEnum[@cliente.StatusCliente]</td>
+                                            <td></td>
+                                            <td><a href='@Url.Action("Banir", "Administrador")'><i class="fas fa-times"></i></a></td>
+                                            <td><a href='@Url.Action("Suspender", "Administrador")'><i class="fas fa-power-off"></i></a></td>
+                                        </tr>
+                                        }
+                                </tbody>
+                            </table>
+                            
+                            @foreach (var evento in Model.Clientes)
+                            {
+                                
+                            }
+                        </div>
+        </div>
+    </div>
+</main>

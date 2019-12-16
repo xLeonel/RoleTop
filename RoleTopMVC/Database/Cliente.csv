@@ -1,3 +1,2 @@
-tipo_usuario=1;nome=Administrador;senha=password;email=admin@admin.com;celular=0;cpf=0;data_nascimento=01/01/0001;url_foto=wwwroot\fotouser\fotos\fotopadrao\
-tipo_usuario=0;nome=Vitor Leonel;senha=123;email=vitorleonel100@hotmail.com;celular=11991195734;cpf=00011122233;data_nascimento=06/06/2001;url_foto=wwwroot\fotouser\fotos\Vitor Leonel\perfil\
-tipo_usuario=0;nome=Abigail Pereira dos Santos;senha=asd;email=pereira@email.com;celular=11991195734;cpf=00011122233;data_nascimento=05/02/2020;url_foto=wwwroot\fotouser\fotos\fotopadrao\
+tipo_usuario=1;nome=ADM;senha=asd;email=admin@admin.com;celular=11991195734;cpf=00011122233;data_nascimento=06/06/2001;url_foto=wwwroot\fotouser\fotos\fotopadrao\;status_cliente=0
+tipo_usuario=0;nome=Vitor Leonel;senha=asd;email=vitorleonel100@hotmail.com;celular=11991195734;cpf=00011122233;data_nascimento=06/06/2001;url_foto=wwwroot\fotouser\fotos\Vitor Leonel\perfil\;status_cliente=0

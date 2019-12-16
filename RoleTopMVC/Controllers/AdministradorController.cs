@@ -15,11 +15,11 @@ namespace RoleTopMVC.Controllers
         EventoRepository eventoRepository = new EventoRepository();
         ClienteRepository clienteRepository = new ClienteRepository();
         public IActionResult Dashboard()
-        {   
+        {
             var user = clienteRepository.ObterPor(ObterUsuarioSession());
             var urlFoto = Directory.GetFiles(user.URLFotoPerfil).FirstOrDefault();
-            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\","/").Replace("wwwroot", "");
-            
+            var urlRelativa = urlFoto.Replace(Directory.GetCurrentDirectory(), "").Replace("\\", "/").Replace("wwwroot", "");
+
             return View(new EventoViewModel()
             {
                 NomeView = "Dashboard",
@@ -53,7 +53,7 @@ namespace RoleTopMVC.Controllers
         public IActionResult Aprovar(ulong id)
         {
             var evento = eventoRepository.ObterPor(id);
-            evento.Status = (uint) StatusEvento.APROVADO;
+            evento.Status = (uint)StatusEvento.APROVADO;
 
             if (eventoRepository.Atualizar(evento))
             {
@@ -61,7 +61,8 @@ namespace RoleTopMVC.Controllers
             }
             else
             {
-                return View(new RespostaViewModel($"Não foi possível aprovar esse pedido."){
+                return View(new RespostaViewModel($"Não foi possível aprovar esse evento.")
+                {
                     NomeView = "EventosAdm",
                     UsuarioEmail = ObterUsuarioSession(),
                     UsuarioNome = ObterUsuarioNomeSession()
@@ -72,7 +73,7 @@ namespace RoleTopMVC.Controllers
         public IActionResult Recusar(ulong id)
         {
             var evento = eventoRepository.ObterPor(id);
-            evento.Status = (uint) StatusEvento.REPROVADO;
+            evento.Status = (uint)StatusEvento.REPROVADO;
 
             if (eventoRepository.Atualizar(evento))
             {
@@ -80,12 +81,27 @@ namespace RoleTopMVC.Controllers
             }
             else
             {
-                return View(new RespostaViewModel($"Não foi possível aprovar esse pedido."){
+                return View(new RespostaViewModel($"Não foi possível aprovar esse evento.")
+                {
                     NomeView = "EventosAdm",
                     UsuarioEmail = ObterUsuarioSession(),
                     UsuarioNome = ObterUsuarioNomeSession()
                 });
             }
+
+        }
+        public IActionResult Blacklist()
+        {
+            var tdsCliente = clienteRepository.ObterTodos();
+            var statusClientesEnum = Enum.GetNames(typeof(StatusClientes));
+            return View(new EventoViewModel()
+            {
+                NomeView = "Blacklist",
+                UsuarioEmail = ObterUsuarioSession(),
+                UsuarioNome = ObterUsuarioNomeSession(),
+                Clientes = tdsCliente,
+                StatusClienteEnum = statusClientesEnum
+            });
         }
     }
 }
