@@ -92,16 +92,59 @@ namespace RoleTopMVC.Controllers
         }
         public IActionResult Blacklist()
         {
-            var tdsCliente = clienteRepository.ObterTodos();
+            var clientesSemban = clienteRepository.ObterClientePor(0);
+            var clientesBanidos = clienteRepository.ObterClientePor(1);
             var statusClientesEnum = Enum.GetNames(typeof(StatusClientes));
+
             return View(new EventoViewModel()
             {
                 NomeView = "Blacklist",
                 UsuarioEmail = ObterUsuarioSession(),
                 UsuarioNome = ObterUsuarioNomeSession(),
-                Clientes = tdsCliente,
+                Clientes = clientesSemban,
+                ClientesBanido = clientesBanidos,
                 StatusClienteEnum = statusClientesEnum
             });
+        }
+
+        public IActionResult Banir(string email)
+        {
+            var cliente = clienteRepository.ObterPor(email);
+            cliente.StatusCliente = (uint) StatusClientes.BANIDO;
+
+            if (clienteRepository.Atualizar(cliente))
+            {
+                return RedirectToAction("Blacklist","Administrador");
+            }
+            else
+            {
+                return View(new RespostaViewModel($"Não foi possível banir esse usuario.")
+                {
+                    NomeView = "Blacklist",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            } 
+        }
+
+        public IActionResult Desbanir(string email)
+        {
+            var cliente = clienteRepository.ObterPor(email);
+            cliente.StatusCliente = (uint) StatusClientes.SEMBAN;
+
+            if (clienteRepository.Atualizar(cliente))
+            {
+                return RedirectToAction("Blacklist","Administrador");
+            }
+            else
+            {
+                return View(new RespostaViewModel($"Não foi possível desbanir esse usuario.")
+                {
+                    NomeView = "Blacklist",
+                    UsuarioEmail = ObterUsuarioSession(),
+                    UsuarioNome = ObterUsuarioNomeSession()
+                });
+            } 
         }
     }
 }

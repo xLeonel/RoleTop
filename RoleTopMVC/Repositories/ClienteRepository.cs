@@ -20,6 +20,8 @@ namespace RoleTopMVC.Repositories
 
         public bool Inserir(Cliente cliente)
         {
+            var quantidadeClientes = File.ReadAllLines(PATH).Length;
+            cliente.Id = (ulong) ++quantidadeClientes;
             var linha = new string[] { PrepararRegistroCSV(cliente) };
             File.AppendAllLines(PATH, linha);
 
@@ -34,7 +36,9 @@ namespace RoleTopMVC.Repositories
                 if (ExtrairValorDoCampo("email", item).Equals(email))
                 {
                     Cliente cliente = new Cliente();
+                    cliente.Id = ulong.Parse(ExtrairValorDoCampo("id", item));
                     cliente.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_usuario", item));
+                    cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
                     cliente.Nome = ExtrairValorDoCampo("nome", item);
                     cliente.Senha = ExtrairValorDoCampo("senha", item);
                     cliente.Email = ExtrairValorDoCampo("email", item);
@@ -42,7 +46,6 @@ namespace RoleTopMVC.Repositories
                     cliente.Cpf = ExtrairValorDoCampo("cpf", item);
                     cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
                     cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
-                    cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
 
                     return cliente;
                 }
@@ -56,23 +59,50 @@ namespace RoleTopMVC.Repositories
             List<Cliente> clientes = new List<Cliente>();
             foreach (var item in linhas)
             {
-                if (ExtrairValorDoCampo("tipo_usuario", item).Equals("0"))
-                {
-                    Cliente cliente = new Cliente();
-                    cliente.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_usuario", item));
-                    cliente.Nome = ExtrairValorDoCampo("nome", item);
-                    cliente.Senha = ExtrairValorDoCampo("senha", item);
-                    cliente.Email = ExtrairValorDoCampo("email", item);
-                    cliente.Celular = ExtrairValorDoCampo("celular", item);
-                    cliente.Cpf = ExtrairValorDoCampo("cpf", item);
-                    cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
-                    cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
-                    cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
 
-                    clientes.Add(cliente);
-                }
+                Cliente cliente = new Cliente();
+                cliente.Id = ulong.Parse(ExtrairValorDoCampo("id", item));
+                cliente.TipoUsuario = uint.Parse(ExtrairValorDoCampo("tipo_usuario", item));
+                cliente.StatusCliente = uint.Parse((ExtrairValorDoCampo("status_cliente", item)));
+                cliente.Nome = ExtrairValorDoCampo("nome", item);
+                cliente.Senha = ExtrairValorDoCampo("senha", item);
+                cliente.Email = ExtrairValorDoCampo("email", item);
+                cliente.Celular = ExtrairValorDoCampo("celular", item);
+                cliente.Cpf = ExtrairValorDoCampo("cpf", item);
+                cliente.DataNascimento = DateTime.Parse(ExtrairValorDoCampo("data_nascimento", item));
+                cliente.URLFotoPerfil = ExtrairValorDoCampo("url_foto", item);
+
+                clientes.Add(cliente);
+
             }
             return clientes;
+        }
+
+        public bool Atualizar(Cliente cliente)
+        {
+            var clienteTotais = File.ReadAllLines(PATH);
+            var clienteCSV = PrepararRegistroCSV(cliente);
+            var linhaPedido = -1;
+            var resultado = false;
+
+            for (int i = 0; i < clienteTotais.Length; i++)
+            {
+                var email = ExtrairValorDoCampo("email", clienteTotais[i]);
+                if (cliente.Email.Equals(email))
+                {
+                    linhaPedido = i;
+                    resultado = true;
+                    break;
+                }
+            }
+
+            if (resultado)
+            {
+                clienteTotais[linhaPedido] = clienteCSV;
+                File.WriteAllLines(PATH, clienteTotais);
+            }
+
+            return resultado;
         }
 
         public bool AtualizarSenha(string email, string senhaNova)
@@ -133,9 +163,28 @@ namespace RoleTopMVC.Repositories
             return resultado;
         }
 
+        public List<Cliente> ObterClientePor(uint status)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            var todosCliente = ObterTodos();
+
+            foreach (var cliente in todosCliente)
+            {
+                if (cliente.TipoUsuario.Equals(0))
+                {
+                    if (cliente.StatusCliente.Equals(status))
+                    {
+                        clientes.Add(cliente);
+                    }
+                }
+            }
+            return clientes;
+        }
+
+
         private string PrepararRegistroCSV(Cliente cliente)
         {
-            return $"tipo_usuario={cliente.TipoUsuario};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento.ToShortDateString()};url_foto={cliente.URLFotoPerfil};status_cliente={cliente.StatusCliente}";
+            return $"id={cliente.Id};tipo_usuario={cliente.TipoUsuario};status_cliente={cliente.StatusCliente};nome={cliente.Nome};senha={cliente.Senha};email={cliente.Email};celular={cliente.Celular};cpf={cliente.Cpf};data_nascimento={cliente.DataNascimento.ToShortDateString()};url_foto={cliente.URLFotoPerfil}";
         }
     }
 }

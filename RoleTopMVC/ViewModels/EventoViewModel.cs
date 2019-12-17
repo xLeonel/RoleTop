@@ -20,6 +20,7 @@ namespace RoleTopMVC.ViewModels
         public List<Pergunta> Perguntas {get;set;}
         public string FotoEvento {get;set;}
         public List<Cliente> Clientes {get;set;}
+        public List<Cliente> ClientesBanido { get; set; }
        
         public EventoViewModel()
         {

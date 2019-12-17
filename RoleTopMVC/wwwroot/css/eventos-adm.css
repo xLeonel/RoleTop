@@ -83,6 +83,10 @@ body {
     background-color: rgb(255, 75, 75);
 }
 
+#neutro:focus {
+    background-color:white;
+}
+
 table {
     /* background-color: yellow; */
     text-align: center;

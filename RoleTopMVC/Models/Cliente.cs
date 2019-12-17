@@ -14,6 +14,7 @@ namespace RoleTopMVC.Models
         public uint TipoUsuario { get; set; }
         public string URLFotoPerfil { get; set; }
         public uint StatusCliente { get; set; }
+        public ulong Id { get; set; }
 
         public Cliente()
         {
@@ -22,6 +23,7 @@ namespace RoleTopMVC.Models
 
         public Cliente(string Nome, string Senha, string Email, string Celular, string Cpf, DateTime DataNascimento)
         {
+            this.Id = 0;
             this.Nome = Nome;
             this.Senha = Senha;
             this.Email = Email;

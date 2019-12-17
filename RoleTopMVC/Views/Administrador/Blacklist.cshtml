@@ -15,20 +15,66 @@
             
             <div id="container-dashboard">
                 <div id="osbutao">
-                    <div id="tab1" class="ta"><button class="butoes" id="aprovado" style="font-weight: bolder">Banidos</button></div>
-                    <div id="tab2" class="ta"><button class="butoes" id="pendente" style="font-weight: bolder">Limpos</button></div>
-                    <div id="tab3" class="ta"><button class="butoes" id="recusado" style="font-weight: bolder">Suspensos</button></div>
+                    <div id="tab1" class="ta"><button class="butoes" id="recusado" style="font-weight: bolder">Banidos</button></div>
+                    <div id="tab2" class="ta"><button class="butoes" id="neutro" style="font-weight:bolder">Limpos</button></div>
+                    <div id="tab3" class="ta"><button class="butoes" id="pendente" style="font-weight: bolder">Suspensos</button></div>
                 </div>
+                @* APROVADOS *@
+                <div id="tab1show" class="tab">
+                            <table id="pendente">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Nome</th>
+                                        <th rowspan="2">Status</th>
+                                        <th colspan="2" rowspan="2">Desbanir</th>
+                                        <th colspan="2" rowspan="2">Informações</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>Clientes atualizados em @DateTime.Now</p>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var cliente in Model.ClientesBanido)
+                                        {
+                                        <tr>
+                                            <td>@cliente.Nome</td>
+                                            <td>@Model.StatusClienteEnum[@cliente.StatusCliente]</td>
+                                            <td></td>
+                                            <td><a href='@Url.Action("Desbanir", "Administrador", new {email = @cliente.Email})'><i class="fas fa-times"></i></a></td>
+                                            <td><a href="#@cliente.Id" rel="modal:open" style="text-decoration:none;color:white"><em>Clique Aqui</em></a></td>
+                                        </tr>
+                                        }
+                                </tbody>
+                            </table>
+                            
+                            @foreach (var cliente in Model.ClientesBanido)
+                            {
+                                <div id="@cliente.Id" class="modal">
+                                    <p>@cliente.Nome</p>
+                                    <a href="#" rel="modal:close" style="float:right"></a>
+                                </div>
+                            }
+                        </div>
 
-                        <!-- PENDENTES -->
+                        <!-- BANIR -->
                         <div id="tab2show" class="tab">
                             <table id="pendente">
                                 <thead>
                                     <tr>
                                         <th rowspan="2">Nome</th>
                                         <th rowspan="2">Status</th>
-                                        <th colspan="2" rowspan="2">Banir</th>
-                                        <th colspan="2" rowspan="2">Suspender</th>
+                                        <th rowspan="2">Banir</th>
+                                        <th colspan="2" rowspan="2">Motivo</th>
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -50,9 +96,9 @@
                                         <tr>
                                             <td>@cliente.Nome</td>
                                             <td>@Model.StatusClienteEnum[@cliente.StatusCliente]</td>
+                                            <td><a href='@Url.Action("Banir", "Administrador", new {email = @cliente.Email})'><i class="fas fa-times"></i></a></td>
                                             <td></td>
-                                            <td><a href='@Url.Action("Banir", "Administrador")'><i class="fas fa-times"></i></a></td>
-                                            <td><a href='@Url.Action("Suspender", "Administrador")'><i class="fas fa-power-off"></i></a></td>
+                                            <td><a href='@Url.Action("Suspender", "Administrador")'>motivo</a></td>
                                         </tr>
                                         }
                                 </tbody>
